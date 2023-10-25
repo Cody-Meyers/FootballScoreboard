@@ -1,0 +1,206 @@
+/* ! CSS Reset Start */
+
+/* Box sizing rules on everything */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Removing default styles on ol, ul */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Set Default Body */
+body {
+  height: 100vh;
+  line-height: 1.5;
+}
+
+/* Easier image settings - Sets common media content to fill maximum of its parent containter */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Cascade inherits the font from the parents to these elements (Overrides/Removes the built-in form typography style preventing inheritence) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Allows single long words to be broken to another line in its container instead of overflowing beyond it */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Removes the spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* ! CSS Reset Complete */
+
+.main-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  border: 2px solid rgb(232, 20, 154);
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section-container {
+  border: 2px solid red;
+  flex: 1 1 auto;
+}
+
+.main-footer {
+  flex: 0 1 40px;
+}
+
+.scoreboard-container {
+  border: 2px solid orange;
+}
+
+.scoreboard-container {
+  border: 2px solid yellow;
+  padding: 1rem;
+}
+
+.header-ticker-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: blanchedalmond;
+}
+
+.header-ticker {
+  border: 2px solid green;
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.header-ticker-home {
+  background-color: darkmagenta;
+}
+
+.header-ticker-center {
+  background-color: rgb(13, 62, 92);
+}
+
+.header-ticker-visitor {
+  background-color: rgb(15, 157, 157);
+}
+
+.static-components {
+  border: 2px solid blue;
+  background-color: aqua;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.static-components-style {
+  height: 8rem;
+  background-color: brown;
+  padding: 1rem;
+}
+
+.logo-background {
+  display: flex;
+  flex-direction: column;
+  min-height: 5rem;
+  background-color: indigo;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+}
+
+.logo-team {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3rem;
+  width: 16rem;
+}
+
+.logo-home {
+  background-color: silver;
+  height: 2rem;
+  width: 2rem;
+}
+
+.logo-visitor {
+  background-color: darkgreen;
+  min-height: 2rem;
+  width: 2rem;
+}
+
+.record-team-container {
+  display: flex;
+  justify-content: space-between;
+  min-height: 1rem;
+  width: 20rem;
+  background-color: grey;
+}
+
+.indicators-container {
+  display: flex;
+  background-color: rgb(72, 9, 9);
+  min-height: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.indicator-timeouts {
+  background-color: orangered;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 2rem;
+  width: 16rem;
+}
+
+.indicator-timeouts-home {
+  background-color: white;
+  width: 5rem;
+  min-height: 1rem;
+}
+
+.indicator-timeouts-visitor {
+  background-color: white;
+  width: 5rem;
+  min-height: 1rem;
+}
