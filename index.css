@@ -69,7 +69,7 @@ table {
   display: flex;
   flex-flow: column;
   height: 100vh;
-  border: 2px solid rgb(232, 20, 154);
+  border: 8px solid rgb(232, 20, 154);
 }
 
 .main-header {
@@ -78,8 +78,8 @@ table {
 }
 
 .main-section-container {
-  border: 2px solid red;
   flex: 1 1 auto;
+  border: 8px solid rgb(58, 179, 108);
 }
 
 .main-footer {
@@ -90,6 +90,11 @@ table {
   border: 2px solid orange;
 }
 
+.scoreboard-container h4 {
+  display: flex;
+  justify-content: center;
+}
+
 .scoreboard-container {
   border: 2px solid yellow;
   padding: 1rem;
@@ -98,20 +103,17 @@ table {
 .header-ticker-container {
   display: flex;
   justify-content: center;
-  padding: 1rem;
   background-color: blanchedalmond;
 }
 
 .header-ticker {
-  border: 2px solid green;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   width: 20rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: flex-start;
 }
 
-.header-ticker-home {
+.header-ticker-visitor {
   background-color: darkmagenta;
 }
 
@@ -119,22 +121,18 @@ table {
   background-color: rgb(13, 62, 92);
 }
 
-.header-ticker-visitor {
+.header-ticker-home {
   background-color: rgb(15, 157, 157);
 }
 
 .static-components {
-  border: 2px solid blue;
   background-color: aqua;
-  padding: 1rem;
   display: flex;
   justify-content: center;
 }
 
 .static-components-style {
-  height: 8rem;
   background-color: brown;
-  padding: 1rem;
 }
 
 .logo-background {
@@ -152,20 +150,21 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 3rem;
-  width: 16rem;
-}
-
-.logo-home {
-  background-color: silver;
-  height: 2rem;
-  width: 2rem;
+  min-height: 5rem;
+  width: 18rem;
+  padding: 0 1rem;
 }
 
 .logo-visitor {
-  background-color: darkgreen;
-  min-height: 2rem;
-  width: 2rem;
+  /* background-color: silver; */
+  height: 4rem;
+  width: 4rem;
+}
+
+.logo-home {
+  /* background-color: darkgreen; */
+  height: 4rem;
+  width: 4rem;
 }
 
 .record-team-container {
@@ -178,8 +177,8 @@ table {
 
 .indicators-container {
   display: flex;
-  background-color: rgb(72, 9, 9);
-  min-height: 2rem;
+  background-color: rgb(119, 57, 57);
+  min-height: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -189,18 +188,32 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 2rem;
-  width: 16rem;
-}
-
-.indicator-timeouts-home {
-  background-color: white;
-  width: 5rem;
   min-height: 1rem;
+  width: 20rem;
+  padding: 0 1rem;
 }
 
 .indicator-timeouts-visitor {
   background-color: white;
   width: 5rem;
   min-height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator-timeouts-home {
+  background-color: white;
+  width: 5rem;
+  min-height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicators-container input {
+  appearance: none;
+  width: 2em;
+  height: 0.5em;
+  background: rgb(22, 192, 192);
 }

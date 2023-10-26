@@ -17,14 +17,15 @@
       <main class="main-section-container">
         <h2>Main Section</h2>
         <div class="scoreboard-container">
+          <h2>Scoreboard</h2>
           <header class="header-ticker-container">
             <div class="header-ticker">
-              <div class="header-ticker-home">
-                <h2>Home Team Header Info</h2>
-              </div>
-              <div class="header-ticker-center"><h2>FLAG</h2></div>
               <div class="header-ticker-visitor">
-                <h2>Visitor Team Header Info</h2>
+                <h4>V Header Info</h4>
+              </div>
+              <div class="header-ticker-center"><h4>FLAG</h4></div>
+              <div class="header-ticker-home">
+                <h4>H Header Info</h4>
               </div>
             </div>
           </header>
@@ -32,12 +33,22 @@
             <div class="static-components-style">
               <div class="logo-background">
                 <div class="record-team-container">
-                  <div class="record-home"></div>
                   <div class="record-visitor"></div>
+                  <div class="record-home"></div>
                 </div>
                 <div class="logo-team">
-                  <div class="logo-home"></div>
-                  <div class="logo-visitor"></div>
+                  <img
+                    src="./images/cowboys.png"
+                    alt="Cowboys Logo"
+                    class="logo-visitor"
+                  />
+                  <!-- <div class="logo-visitor"></div> -->
+                  <img
+                    src="./images/seahawks.png"
+                    alt="Seahawks Logo"
+                    class="logo-home"
+                  />
+                  <!-- <div class="logo-home"></div> -->
                 </div>
               </div>
             </div>
@@ -45,30 +56,69 @@
           <div class="score-container">
             <div class="score-scroll"></div>
             <div class="indicator-possession">
-              <div class="indicator-possession-home"></div>
-              <div class="indicator-possession-visitor"></div>
+              <div class="indicator-possession-visitor">
+                <div class="indicator-possession-home"></div>
+              </div>
+              <div class="score-change">
+                <div class="score-visitor"></div>
+                <div class="score-home"></div>
+              </div>
             </div>
-            <div class="score-change">
-              <div class="score-home"></div>
-              <div class="score-visitor"></div>
+            <div class="ticker-main-container"></div>
+            <div class="ticker-main">
+              <div class="quarter"></div>
+              <div class="clock"></div>
+              <div class="play-clock"></div>
+              <div class="down-yards"></div>
             </div>
-          </div>
-          <div class="ticker-main-container"></div>
-          <div class="ticker-main">
-            <div class="quarter"></div>
-            <div class="clock"></div>
-            <div class="play-clock"></div>
-            <div class="down-yards"></div>
-          </div>
-          <div class="indicators-container">
-            <div class="indicator-timeouts">
-              <div class="indicator-timeouts-home"></div>
-              <div class="indicator-timeouts-visitor"></div>
+            <div class="indicators-container">
+              <div class="indicator-timeouts">
+                <div class="indicator-timeouts-visitor">
+                  <input
+                    type="checkbox"
+                    id="visitorCheckbox1"
+                    name="visitorCheckbox1"
+                    checked
+                  />
+                  <input
+                    type="checkbox"
+                    id="visitorCheckbox2"
+                    name="visitorCheckbox2"
+                    checked
+                  />
+                  <input
+                    type="checkbox"
+                    id="visitorCheckbox3"
+                    name="visitorCheckbox3"
+                    checked
+                  />
+                </div>
+                <div class="indicator-timeouts-home">
+                  <input
+                    type="checkbox"
+                    id="homeCheckbox1"
+                    name="homeCheckbox1"
+                    checked
+                  />
+                  <input
+                    type="checkbox"
+                    id="homeCheckbox2"
+                    name="homeCheckbox2"
+                    checked
+                  />
+                  <input
+                    type="checkbox"
+                    id="homeCheckbox3"
+                    name="homeCheckbox3"
+                    checked
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div class="highlight-stats">
-            <div class="highlight-stats-home"></div>
             <div class="highlight-stats-visitor"></div>
+            <div class="highlight-stats-home"></div>
           </div>
         </div>
         <div class="controls-container">

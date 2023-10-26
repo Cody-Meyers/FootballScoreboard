@@ -1,4 +1,4 @@
-# Football Scorekeeper App
+# Football Scoreboard App
 
 ## Goals:
 
