@@ -133,6 +133,23 @@ table {
 
 .static-components-style {
   background-color: brown;
+  padding: 0 1rem;
+  display: flex;
+}
+
+.static-components-style aside {
+  display: flex;
+  align-items: end;
+}
+
+.aside-visitor {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.aside-home {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .logo-background {
@@ -165,6 +182,10 @@ table {
   /* background-color: darkgreen; */
   height: 4rem;
   width: 4rem;
+}
+
+.score-container {
+  background-color: red;
 }
 
 .record-team-container {
