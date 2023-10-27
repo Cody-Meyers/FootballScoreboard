@@ -1,0 +1,445 @@
+/* ! CSS Reset Start */
+
+/* Box sizing rules on everything */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Removing default styles on ol, ul */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Set Default Body */
+body {
+  height: 100vh;
+  /* line-height: 1.5; */
+}
+
+/* Easier image settings - Sets common media content to fill maximum of its parent containter */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Cascade inherits the font from the parents to these elements (Overrides/Removes the built-in form typography style preventing inheritence) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Allows single long words to be broken to another line in its container instead of overflowing beyond it */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Removes the spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* ! CSS Reset Complete */
+
+.container-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border: 4px solid pink;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-header {
+  min-height: 50px;
+  border: 2px solid rgb(23, 44, 24);
+}
+
+.container-scoreboard {
+  max-height: 400px;
+  width: 100%;
+  border: 10px solid yellowgreen;
+  align-items: center;
+}
+
+.parent {
+  /* max-height: 500px;
+  width: 500px; */
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+/* for the below section grid-area: 1 / 1 / 8 / 13 */
+.div1 {
+  grid-area: 2 / 2 / 8 / 12;
+}
+.div2 {
+  grid-area: 4 / 5 / 6 / 7;
+}
+.div3 {
+  grid-area: 4 / 7 / 6 / 9;
+}
+.div4 {
+  grid-area: 2 / 5 / 4 / 7;
+}
+.div5 {
+  grid-area: 2 / 7 / 4 / 9;
+}
+.div6 {
+  grid-area: 4 / 10 / 5 / 12;
+}
+.div7 {
+  grid-area: 4 / 2 / 5 / 4;
+}
+.div8 {
+  grid-area: 4 / 9 / 7 / 12;
+}
+.div9 {
+  grid-area: 4 / 2 / 7 / 5;
+}
+.div10 {
+  grid-area: 6 / 4 / 7 / 10;
+  background-color: green;
+}
+.div11 {
+  grid-area: 7 / 7 / 8 / 12;
+}
+.div12 {
+  grid-area: 7 / 2 / 8 / 7;
+}
+.div13 {
+  grid-area: 6 / 8 / 8 / 12;
+}
+.div14 {
+  grid-area: 6 / 2 / 8 / 6;
+}
+.div15 {
+  grid-area: 3 / 5 / 4 / 9;
+}
+.div16 {
+  grid-area: 3 / 9 / 4 / 12;
+}
+.div17 {
+  grid-area: 3 / 2 / 4 / 5;
+}
+.div18 {
+  grid-area: 1 / 2 / 2 / 12;
+}
+.div19 {
+  grid-area: 1 / 1 / 9 / 13;
+}
+.div20 {
+  grid-area: 2 / 2 / 8 / 12;
+}
+
+.container-controls {
+  flex: 1;
+  min-height: 200px;
+  border: 2px solid green;
+}
+
+.container-footer {
+  min-height: 50px;
+  border: 2px solid rgb(144, 17, 194);
+}
+
+/*for the below section grid-area: 1 / 1 / 13 / 13 */
+/* 
+.div1 {
+  grid-area: 2 / 2 / 12 / 12;
+}
+.div2 {
+  grid-area: 4 / 5 / 6 / 7;
+}
+.div3 {
+  grid-area: 4 / 7 / 6 / 9;
+}
+.div4 {
+  grid-area: 2 / 5 / 4 / 7;
+}
+.div5 {
+  grid-area: 2 / 7 / 4 / 9;
+}
+.div6 {
+  grid-area: 4 / 10 / 5 / 12;
+}
+.div7 {
+  grid-area: 4 / 2 / 5 / 4;
+}
+.div8 {
+  grid-area: 4 / 9 / 7 / 12;
+}
+.div9 {
+  grid-area: 4 / 2 / 7 / 5;
+}
+.div10 {
+  grid-area: 6 / 4 / 7 / 10;
+  background-color: green;
+}
+.div11 {
+  grid-area: 7 / 7 / 8 / 12;
+}
+.div12 {
+  grid-area: 7 / 2 / 8 / 7;
+}
+.div13 {
+  grid-area: 6 / 8 / 8 / 12;
+}
+.div14 {
+  grid-area: 6 / 2 / 8 / 6;
+}
+.div15 {
+  grid-area: 3 / 5 / 4 / 9;
+}
+.div16 {
+  grid-area: 3 / 9 / 4 / 12;
+}
+.div17 {
+  grid-area: 3 / 2 / 4 / 5;
+}
+.div18 {
+  grid-area: 1 / 2 / 2 / 12;
+}
+.div19 {
+  grid-area: 1 / 1 / 13 / 13;
+}
+.div20 {
+  grid-area: 2 / 2 / 12 / 12;
+} */
+
+.main-container {
+  display: flex;
+  flex-flow: column;
+  border: 8px solid rgb(232, 20, 154);
+}
+
+/* for the below section grid-area: 1 / 1 / 12 / 8 */
+/* .div1 {
+    grid-area: 2 / 2 / 8 / 12;
+  }
+  .div2 {
+    grid-area: 4 / 5 / 6 / 7;
+  }
+  .div3 {
+    grid-area: 4 / 7 / 6 / 9;
+  }
+  .div4 {
+    grid-area: 2 / 5 / 4 / 7;
+  }
+  .div5 {
+    grid-area: 2 / 7 / 4 / 9;
+  }
+  .div6 {
+    grid-area: 4 / 10 / 5 / 12;
+  }
+  .div7 {
+    grid-area: 4 / 2 / 5 / 4;
+  }
+  .div8 {
+    grid-area: 4 / 9 / 7 / 12;
+  }
+  .div9 {
+    grid-area: 4 / 2 / 7 / 5;
+  }
+  .div10 {
+    grid-area: 6 / 4 / 7 / 10;
+    background-color: green;
+  }
+  .div11 {
+    grid-area: 7 / 7 / 8 / 12;
+  }
+  .div12 {
+    grid-area: 7 / 2 / 8 / 7;
+  }
+  .div13 {
+    grid-area: 6 / 8 / 8 / 12;
+  }
+  .div14 {
+    grid-area: 6 / 2 / 8 / 6;
+  }
+  .div15 {
+    grid-area: 3 / 5 / 4 / 9;
+  }
+  .div16 {
+    grid-area: 3 / 9 / 4 / 12;
+  }
+  .div17 {
+    grid-area: 3 / 2 / 4 / 5;
+  }
+  .div18 {
+    grid-area: 1 / 2 / 2 / 12;
+  }
+  .div19 {
+    grid-area: 1 / 1 / 8 / 13;
+  }
+  .div20 {
+    grid-area: 2 / 2 / 8 / 12;
+  } */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section-container {
+  border: 8px solid rgb(58, 179, 108);
+}
+
+.main-footer {
+  flex: 0 1 40px;
+}
+
+.scoreboard-container {
+  border: 20px solid orange;
+}
+
+.scoreboard-container h4 {
+  display: flex;
+  justify-content: center;
+}
+
+.scoreboard-container {
+  border: 2px solid grey;
+  padding: 1rem;
+}
+
+.header-ticker-container {
+  display: flex;
+  justify-content: center;
+  background-color: blanchedalmond;
+}
+
+.header-ticker-visitor {
+  background-color: darkmagenta;
+}
+
+.header-ticker-center {
+  background-color: rgb(13, 62, 92);
+}
+
+.header-ticker-home {
+  background-color: rgb(15, 157, 157);
+}
+
+.static-components {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+}
+
+.aside-visitor {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.aside-home {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.logo-team {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* min-height: 5rem; */
+  /* width: 18rem; */
+  padding: 0 1rem;
+}
+
+.logo-visitor {
+  /* background-color: silver; */
+  /* height: 4rem; */
+  /* width: 4rem; */
+}
+
+.logo-home {
+  /* background-color: darkgreen; */
+  /* height: 4rem; */
+  /* width: 4rem; */
+}
+
+.score {
+  place-self: center;
+  font-size: 5rem;
+}
+
+.record-team-container {
+  display: flex;
+  justify-content: space-between;
+  /* min-height: 1rem; */
+  /* width: 20rem; */
+  background-color: grey;
+}
+
+.indicators-container {
+  display: flex;
+  background-color: rgb(119, 57, 57);
+  /* min-height: 1rem; */
+  display: flex;
+  justify-content: center;
+}
+
+.indicator-timeouts {
+  background-color: orangered;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* min-height: 1rem; */
+  /* width: 20rem; */
+  padding: 0 1rem;
+}
+
+.indicator-timeouts-visitor {
+  background-color: white;
+  /* width: 5rem; */
+  /* min-height: 1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator-timeouts-home {
+  background-color: white;
+  /* width: 5rem; */
+  /* min-height: 1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicators-container input {
+  appearance: none;
+  /* width: 2em; */
+  /* height: 0.5em; */
+  background: rgb(22, 192, 192);
+}
