@@ -19,28 +19,38 @@
             Main Section Container 2
           </div> -->
           <!-- <div class="div1 scoreboard-container2"></div> -->
-          <div class="div17 header-ticker-visitor"><h4>V Header Info</h4></div>
-          <div class="div16 header-ticker-home"><h4>H Header Info</h4></div>
-          <div class="div15 header-ticker-center"><h4>FLAG</h4></div>
-          <div class="div13 aside-style aside-home">
-            <p class="home-stat1">h stat1</p>
-            <p class="home-stat2">h stat2</p>
+          <div
+            class="div17 header-ticker-style header-ticker-visitor transform-hidden"
+          >
+            <h4>V Header Info</h4>
           </div>
-          <div class="div14 aside-style aside-visitor">
-            <p id="visitor-stat1">v stat1</p>
-            <p class="visitor-stat2">v stat2</p>
+          <div
+            class="div16 header-ticker-style header-ticker-home transform-hidden"
+          >
+            <h4>H Header Info</h4>
+          </div>
+          <div class="div15 header-ticker-center transform-hidden">
+            <h4>FLAG</h4>
           </div>
           <div class="div21 logo-background"></div>
-          <div class="div4 score visitor-score-coin">7</div>
-          <div class="div5 score home-score-coin">3</div>
-          <div class="div2 score visitor-score">14</div>
-          <div class="div3 score home-score">10</div>
           <div class="div9 logo-style logo-visitor">
             <img src="./images/cowboys.png" alt="Cowboys Logo" />
           </div>
           <div class="div8 logo-style logo-home">
             <img src="./images/seahawks.png" alt="Seahawks Logo" />
           </div>
+          <div class="div14 aside-style aside-visitor transform-hidden">
+            <p id="visitor-stat1">v stat1 additional info here</p>
+            <p class="visitor-stat2">v stat2</p>
+          </div>
+          <div class="div13 aside-style aside-home transform-hidden">
+            <p class="home-stat1">h stat1</p>
+            <p class="home-stat2">h stat2</p>
+          </div>
+          <div class="div4 score visitor-score-coin">7</div>
+          <div class="div5 score home-score-coin">3</div>
+          <div class="div2 score visitor-score">14</div>
+          <div class="div3 score home-score">10</div>
           <div class="div7 record record-visitor">2-4</div>
           <div class="div6 record record-home">4-2</div>
           <div class="div10 container-ticker">
@@ -97,8 +107,17 @@
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
           <div class="controls-score"></div>
-          <div class="controls-ticker-main"></div>
-          <div class="controls-highlight-stats"></div>
+          <div class="controls-ticker-main">
+            <button id="button-ticker-v-transform">V Ticker Transform</button>
+            <button id="button-ticker-center-transform">
+              Center Ticker Transform
+            </button>
+            <button id="button-ticker-h-transform">H Ticker Transform</button>
+          </div>
+          <div class="controls-highlight-stats">
+            <button id="button-aside-v-transform">V Stat Transform</button>
+            <button id="button-aside-h-transform">H Stat Transform</button>
+          </div>
         </div>
       </div>
       <footer class="box container-footer">
@@ -106,4 +125,5 @@
       </footer>
     </div>
   </body>
+  <script src="./gridIndex.js"></script>
 </html>

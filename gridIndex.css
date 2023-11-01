@@ -245,92 +245,27 @@ table {
   grid-area: 2 / 2 / 12 / 12;
 } */
 
-/* for the below section grid-area: 1 / 1 / 12 / 8 */
-/* .div1 {
-    grid-area: 2 / 2 / 8 / 12;
-  }
-  .div2 {
-    grid-area: 4 / 5 / 6 / 7;
-  }
-  .div3 {
-    grid-area: 4 / 7 / 6 / 9;
-  }
-  .div4 {
-    grid-area: 2 / 5 / 4 / 7;
-  }
-  .div5 {
-    grid-area: 2 / 7 / 4 / 9;
-  }
-  .div6 {
-    grid-area: 4 / 10 / 5 / 12;
-  }
-  .div7 {
-    grid-area: 4 / 2 / 5 / 4;
-  }
-  .div8 {
-    grid-area: 4 / 9 / 7 / 12;
-  }
-  .div9 {
-    grid-area: 4 / 2 / 7 / 5;
-  }
-  .div10 {
-    grid-area: 6 / 4 / 7 / 10;
-    background-color: green;
-  }
-  .div11 {
-    grid-area: 7 / 7 / 8 / 12;
-  }
-  .div12 {
-    grid-area: 7 / 2 / 8 / 7;
-  }
-  .div13 {
-    grid-area: 6 / 8 / 8 / 12;
-  }
-  .div14 {
-    grid-area: 6 / 2 / 8 / 6;
-  }
-  .div15 {
-    grid-area: 3 / 5 / 4 / 9;
-  }
-  .div16 {
-    grid-area: 3 / 9 / 4 / 12;
-  }
-  .div17 {
-    grid-area: 3 / 2 / 4 / 5;
-  }
-  .div18 {
-    grid-area: 1 / 2 / 2 / 12;
-  }
-  .div19 {
-    grid-area: 1 / 1 / 8 / 13;
-  }
-  .div20 {
-    grid-area: 2 / 2 / 8 / 12;
-  } */
-
 .main-header {
   display: flex;
   justify-content: space-between;
 }
 
-/* .scoreboard-container {
-  border: 20px solid orange;
-  background-color: tan;
-} */
-
-/* .main-section-container {
-  border: 8px solid rgb(58, 179, 108);
-  background-color: tan;
-} */
-
 .main-footer {
   flex: 0 1 40px;
 }
 
-/* .scoreboard-container2 {
-  border: 2px solid grey;
-  background-color: tan;
-} */
+.header-ticker-style {
+  margin: 0 1.65rem;
+}
+
+.header-ticker-transform {
+  transform: translateY(-100%);
+  opacity: 1;
+  z-index: 1;
+  transition: transform 2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.25s linear,
+    z-index 0.4s step-end;
+  transition-property: transform, opacity, z-index;
+}
 
 .header-ticker-visitor {
   display: flex;
@@ -349,16 +284,17 @@ table {
 .header-ticker-center {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-weight: bold;
   font-size: 1.5rem;
   background-color: rgb(235, 225, 32);
   -webkit-mask-image: url(./images/FolderTab.svg);
-  -webkit-mask-size: 100% 100%;
+  -webkit-mask-size: 100% 50%;
   -webkit-mask-repeat: no-repeat;
   mask-image: url(./images/FolderTab.svg);
   mask-size: 100% 50%;
   mask-repeat: no-repeat;
+  transform: translateY(50%);
 }
 
 .header-ticker-home {
@@ -373,11 +309,6 @@ table {
   mask-image: url(./images/FolderTab.svg);
   mask-size: 100% 50%;
   mask-repeat: no-repeat;
-  /* background: linear-gradient(
-    45deg,
-    rgb(206, 180, 180, 1) 75%,
-    rgba(255, 255, 255, 0) 75.05%
-  ); */
 }
 
 .score {
@@ -388,6 +319,7 @@ table {
 .record {
   display: flex;
   font-weight: bold;
+  padding: 0rem 1.7rem;
 }
 .record-visitor {
   align-content: start;
@@ -405,15 +337,15 @@ table {
 }
 
 .logo-background {
-  background-color: rgba(43, 43, 43, 0.589);
+  background-color: rgba(43, 43, 43, 0);
 }
 
 .logo-visitor {
-  background-color: silver;
+  background: linear-gradient(135deg, transparent 20px, white 20px);
 }
 
 .logo-home {
-  background-color: darkgreen;
+  background: linear-gradient(225deg, transparent 20px, white 20px);
 }
 
 .container-ticker {
@@ -434,34 +366,31 @@ table {
   background-color: blue;
 }
 
-.aside-visitor {
+.transform-hidden {
+  transform: translateX(0%), translateY(0%);
+  opacity: 0;
+  z-index: -1;
+  transition: transform 2s cubic-bezier(1, 0.13, 0, 0.87), opacity 1.75s linear,
+    z-index 0.2s step-start;
+  transition-property: transform, opacity, z-index;
 }
 
-.aside-home {
-}
-
-.aside-visitor {
-  transition: transform 5s;
+.aside-visitor-transform {
   transform: translateX(-100%);
-  /* transform-origin: left; */
+  opacity: 1;
+  z-index: 1;
+  transition: transform 2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.25s linear,
+    z-index 2.2s step-end;
+  transition-property: transform, opacity, z-index;
 }
 
-@keyframes slideaway {
-  0% {
-    opacity: 0;
-  }
-  4% {
-    opacity: 1;
-  }
-  33.33% {
-    opacity: 1;
-  }
-  37.33% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+.aside-home-transform {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 1;
+  transition: transform 2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.25s linear,
+    z-index 2.2s step-end;
+  transition-property: transform, opacity, z-index;
 }
 
 .indicator-style {
