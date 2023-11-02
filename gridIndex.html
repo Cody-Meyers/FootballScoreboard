@@ -47,10 +47,17 @@
             <p class="home-stat1">h stat1</p>
             <p class="home-stat2">h stat2</p>
           </div>
-          <div class="div4 score visitor-score-coin">7</div>
-          <div class="div5 score home-score-coin">3</div>
-          <div class="div2 score visitor-score">14</div>
-          <div class="div3 score home-score">10</div>
+          <div
+            class="div4 score visitor-score-coin"
+            id="visitor-score-coin-id"
+          ></div>
+          <div class="div5 score home-score-coin" id="home-score-coin-id"></div>
+          <div class="div2 score visitor-score">
+            <p id="visitor-score-id"></p>
+          </div>
+          <div class="div3 score home-score">
+            <p id="home-score-id"></p>
+          </div>
           <div class="div7 record record-visitor">2-4</div>
           <div class="div6 record record-home">4-2</div>
           <div class="div10 container-ticker">
@@ -106,7 +113,69 @@
         <div class="controls-main">
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
-          <div class="controls-score"></div>
+          <div class="controls-score">
+            <button
+              id="button-score-coin-visitor-transform"
+              onclick="visitorScoreCoin('6')"
+            >
+              Visitor Touchdown (6)
+            </button>
+            <button
+              id="button-score-coin-visitor-transform"
+              onclick="visitorScoreCoin('6')"
+            >
+              Visitor Extra Point Kick (1)
+            </button>
+            <button
+              id="button-score-coin-visitor-transform"
+              onclick="visitorScoreCoin('2')"
+            >
+              Visitor Extra 2-Point Success (2)
+            </button>
+            <button
+              id="button-score-coin-visitor-transform"
+              onclick="visitorScoreCoin('3')"
+            >
+              Visitor Field Goal (3)
+            </button>
+            <button
+              id="button-score-coin-visitor-transform"
+              onclick="visitorScoreCoin('3')"
+            >
+              Visitor Safety (2)
+            </button>
+
+            <button
+              id="button-score-coin-home-transform"
+              onclick="homeScoreCoin('6')"
+            >
+              Home Touchdown (6)
+            </button>
+            <button
+              id="button-score-coin-home-transform"
+              onclick="homeScoreCoin('6')"
+            >
+              Home Extra Point Kick (1)
+            </button>
+            <button
+              id="button-score-coin-home-transform"
+              onclick="homeScoreCoin('2')"
+            >
+              Home Extra 2-Point Success (2)
+            </button>
+            <button
+              id="button-score-coin-home-transform"
+              onclick="homeScoreCoin('3')"
+            >
+              Home Field Goal (3)
+            </button>
+            <button
+              id="button-score-coin-home-transform"
+              onclick="homeScoreCoin('3')"
+            >
+              Home Safety (2)
+            </button>
+          </div>
           <div class="controls-ticker-main">
             <button id="button-ticker-v-transform">V Ticker Transform</button>
             <button id="button-ticker-center-transform">
