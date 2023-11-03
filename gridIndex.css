@@ -402,68 +402,45 @@ table {
   transition-property: transform, opacity, z-index;
 }
 
-.visitor-coin-transform {
-  /* transform: translateY(100%); */
-  /* opacity: 1;
+/* transform: translateY(100%); */
+/* opacity: 1;
   z-index: 1;
   transition: transform 2s coin-easeOutBounce, opacity 0.25s linear,
     z-index 0.3s step-end;
   transition-property: transform, opacity, z-index; */
-  /* animation: coin-EaseOutBounce 5s step-start, opacity 5s linear,
+/* animation: coin-EaseOutBounce 5s step-start, opacity 5s linear,
     z-index 5s step-start; */
-  /* animation-duration: 5s; */
-  animation-duration: 5s;
+/* animation-duration: 5s; */
+
+/* animation-duration: 5s;
   animation-name: coin-EaseOutBounce;
   animation-iteration-count: 3;
-  animation-direction: alternate;
+  animation-direction: alternate; */
+
+.coin-transform {
+  animation: coin-easeOutBounce 2s linear 2 alternate;
 }
 
 @keyframes coin-easeOutBounce {
   0% {
-    transform: translateY(0%);
-    z-index: 1;
+    transform: translateY(100%);
     opacity: 0;
   }
-
-  12% {
-    transform: translateY(10.89%);
-    opacity: 25;
+  25% {
+    transform: translateY(0%);
   }
-
-  24% {
-    transform: translateY(43.56%);
-    opacity: 50;
+  50% {
+    transform: translateY(0%);
   }
-
-  36% {
-    transform: translateY(98.01%);
+  90% {
+    transform: translateY(-10%);
+    scale: 100%;
   }
-
-  54% {
-    transform: translateY(75.02%);
-    opacity: 100;
-  }
-
-  74% {
-    transform: translateY(98.37%);
-  }
-
-  82% {
-    transform: translateY(93.75%);
-  }
-
-  92% {
-    transform: translateY(99.34%);
-  }
-
-  96% {
-    transform: translateY(98.46%);
-  }
-
   100% {
-    transform: translateY(100%);
+    transform: translateY(0%);
+    opacity: 1;
+    scale: 125%;
   }
-}
 
 .indicator-style {
   display: flex;

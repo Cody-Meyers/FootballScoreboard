@@ -63,28 +63,6 @@ function tickerCenterTransformation() {
   }
 }
 
-// Below function is an alternate else if else if else - may be usefull
-// function tickerCenterTransformation() {
-//   const element = document.querySelector(".header-ticker-center");
-//   const eV = document.querySelector(".header-ticker-visitor");
-//   const eH = document.querySelector(".header-ticker-home");
-//   const eVTest = eV.classList.contains(".transform-hidden");
-//   const eHTest = eV.classList.contains(".transform-hidden");
-
-//   if (!eVTest) {
-//     eV.classList.add("transform-hidden");
-//     element.classList.toggle("header-ticker-transform");
-//     element.classList.toggle("transform-hidden");
-//   } else if (!eHTest) {
-//     eH.classList.add("transform-hidden");
-//     element.classList.toggle("header-ticker-transform");
-//     element.classList.toggle("transform-hidden");
-//   } else {
-//     element.classList.toggle("header-ticker-transform");
-//     element.classList.toggle("transform-hidden");
-//   }
-// }
-
 const tickerHomeTransformButton = document.querySelector(
   "#button-ticker-h-transform"
 );
@@ -96,89 +74,60 @@ function tickerHomeTransformation() {
   element.classList.toggle("transform-hidden");
 }
 
-// !Below are Coin Transformation attempts -- need to add this functionality AFTER the creation of the Coin Div function: visitorScoreCoin -- needs to remove DIV after animation completes
-// const scoreCoinVisitorTransformButton = document.querySelector("#button-score-coin-visitor-transform");
-// scoreCoinVisitorTransformButton.addEventListener("click" scoreVisitorTransformation);
+// -Create Coin DIV's
+function createCoinDiv(points, side) {
+  const eCoin = document.createElement("div");
+  const eCoinPoints = document.createTextNode(points);
 
-// function scoreVisitorTransformation() {
-//   const element = document.querySelector(".visitor-score-coin");
-//   element.classList.toggle(".transform-hidden-coin");
-//   element.classList.toggle(".visitor-coin-transform");
-// }
+  document
+    .querySelector(side)
+    .appendChild(eCoin)
+    .classList.add("coin-transform");
 
-// const element = document.querySelector("#button-score-coin-visitor-transform");
-// element.addEventListener("animationstart", listener, false);
-// element.addEventListener("animationend", listener, false);
-// element.addEventListener("animationiteration", listener, false);
+  eCoin.appendChild(eCoinPoints);
 
-// element.className = "coin-easeOutBounce";
+  document.querySelector(side).appendChild(eCoin);
+}
 
-// function listener(event) {
-//   const e = document.createElement("p");
-//   e.textContent = "";
-// }
-
-// function scoreCoinValue(score) {
-//   document.getElementById("visitor-score-coin-id").innerHTML = score;
-// }
-
-// function scoreChange(visitorScoreValue, homeScoreValue) {
-//   const eVisitorScoreCoin = document.getElementbyID("visitor-score-coin-id");
-//   const eHomeScoreCoin = document.getElementbyID("home-score-coin-id");
-//   const eVisitorScore = document.getElementbyID("visitor-score-id");
-//   const eHomeScore = document.getElementbyID("home-score-id");
-
-//   eVisitorScoreCoin.innerHTML = visitorScoreValue;
-//   eVisitorScore.innerHTML = `evisitorScore.innerHTML + visitorScoreValue`;
-//   eHomeScoreCoin.innerHTML = homeScoreValue;
-//   eHomeScore.innerHTML = homeScoreValue;
-// }
-
-// const scoreCoinVisitorTransformButtonFieldGoal = document.querySelector(
-//   "#button-score-coin-visitor-transform"
-// );
-// scoreCoinVisitorTransformButtonFieldGoal.addEventListener(
-//   "click",
-//   visitorScoreCoin
-// );
-
+// --Visitor Coin DIV Creation
 // function visitorScoreCoin(e) {
 //   const eVisitorScoreCoin = document.createElement("div");
-//   const eVisitorScoreValue = document.createTextNode(e);
+//   const eVisitorScoreCoinValue = document.createTextNode(e);
 
-//   eVisitorScoreCoin.appendChild(eVisitorScoreValue);
+//   document
+//     .getElementById("visitor-score-coin-id")
+//     .appendChild(eVisitorScoreCoin)
+//     .classList.add("visitor-score-coin-transform-class", "coin-transform");
+
+//   eVisitorScoreCoin.appendChild(eVisitorScoreCoinValue);
 
 //   document
 //     .getElementById("visitor-score-coin-id")
 //     .appendChild(eVisitorScoreCoin);
 // }
 
-function visitorScoreCoin(e) {
-  const eVisitorScoreCoin = document.createElement("div");
-  const eVisitorScoreCoinValue = document.createTextNode(e);
+// --Home Coin DIV Creation
+// function homeScoreCoin(e) {
+//   const eHomeScoreCoin = document.createElement("div");
+//   const eHomeScoreCoinValue = document.createTextNode(e);
 
-  document
-    .getElementById("visitor-score-coin-id")
-    .appendChild(eVisitorScoreCoin)
-    .classList.add("visitor-score-coin-transform-class");
+//   document
+//     .getElementById("home-score-coin-id")
+//     .appendChild(eHomeScoreCoin)
+//     .classList.add("home-score-coin-transform-class", "coin-transform");
 
-  eVisitorScoreCoin.appendChild(eVisitorScoreCoinValue);
+//   eHomeScoreCoin.appendChild(eHomeScoreCoinValue);
 
-  document
-    .getElementById("visitor-score-coin-id")
-    .appendChild(eVisitorScoreCoin);
+//   document.getElementById("home-score-coin-id").appendChild(eHomeScoreCoin);
+// }
+
+// ---Select Coin at End of Coin Animation then call function to remove Coin DIV
+function coinAnimationEndFunction() {
+  const animationEndDivRemove = document.querySelector(".coin-transform");
+  animationEndDivRemove.addEventListener("animationend", scoreCoinRemove);
 }
-
-function homeScoreCoin(e) {
-  const eHomeScoreCoin = document.createElement("div");
-  const eHomeScoreCoinValue = document.createTextNode(e);
-
-  document
-    .getElementById("home-score-coin-id")
-    .appendChild(eHomeScoreCoin)
-    .classList.add("home-score-coin-transform-class");
-
-  eHomeScoreCoin.appendChild(eHomeScoreCoinValue);
-
-  document.getElementById("home-score-coin-id").appendChild(eHomeScoreCoin);
+// ---Remove Coin DIV
+function scoreCoinRemove() {
+  const coinDiv = document.querySelector(".coin-transform");
+  coinDiv.remove(coinDiv);
 }

@@ -48,10 +48,13 @@
             <p class="home-stat2">h stat2</p>
           </div>
           <div
-            class="div4 score visitor-score-coin"
+            class="div4 score visitor-score-coin side-visitor"
             id="visitor-score-coin-id"
           ></div>
-          <div class="div5 score home-score-coin" id="home-score-coin-id"></div>
+          <div
+            class="div5 score home-score-coin side-home"
+            id="home-score-coin-id"
+          ></div>
           <div class="div2 score visitor-score">
             <p id="visitor-score-id"></p>
           </div>
@@ -116,62 +119,62 @@
           <div class="controls-score">
             <button
               id="button-score-coin-visitor-transform"
-              onclick="visitorScoreCoin('6')"
+              onclick="createCoinDiv('6', '.side-visitor'); coinAnimationEndFunction()"
             >
               Visitor Touchdown (6)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="visitorScoreCoin('6')"
+              onclick="createCoinDiv('1', '.side-visitor'); coinAnimationEndFunction()"
             >
               Visitor Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="visitorScoreCoin('2')"
+              onclick="createCoinDiv('2', '.side-visitor'); coinAnimationEndFunction()"
             >
               Visitor Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="visitorScoreCoin('3')"
+              onclick="createCoinDiv('3', '.side-visitor'); coinAnimationEndFunction()"
             >
               Visitor Field Goal (3)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="visitorScoreCoin('3')"
+              onclick="createCoinDiv('2', '.side-visitor'); coinAnimationEndFunction()"
             >
               Visitor Safety (2)
             </button>
 
             <button
               id="button-score-coin-home-transform"
-              onclick="homeScoreCoin('6')"
+              onclick="createCoinDiv('6', '.side-home'); coinAnimationEndFunction()"
             >
               Home Touchdown (6)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="homeScoreCoin('6')"
+              onclick="createCoinDiv('1', '.side-home'); coinAnimationEndFunction()"
             >
               Home Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="homeScoreCoin('2')"
+              onclick="createCoinDiv('2', '.side-home'); coinAnimationEndFunction()"
             >
               Home Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="homeScoreCoin('3')"
+              onclick="createCoinDiv('3', '.side-home'); coinAnimationEndFunction()"
             >
               Home Field Goal (3)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="homeScoreCoin('3')"
+              onclick="createCoinDiv('2', '.side-home'); coinAnimationEndFunction()"
             >
               Home Safety (2)
             </button>
