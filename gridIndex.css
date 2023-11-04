@@ -388,7 +388,7 @@ table {
   transition-property: transform, opacity, z-index;
 }
 
-.score {
+.score-style {
   place-self: center;
   font-size: 3rem;
 }
@@ -441,6 +441,7 @@ table {
     opacity: 1;
     scale: 125%;
   }
+}
 
 .indicator-style {
   display: flex;

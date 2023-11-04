@@ -48,18 +48,18 @@
             <p class="home-stat2">h stat2</p>
           </div>
           <div
-            class="div4 score visitor-score-coin side-visitor"
+            class="div4 score-style child-div-present-check visitor-score-coin side-visitor"
             id="visitor-score-coin-id"
           ></div>
           <div
-            class="div5 score home-score-coin side-home"
+            class="div5 score-style child-div-present-check home-score-coin side-home"
             id="home-score-coin-id"
           ></div>
-          <div class="div2 score visitor-score">
-            <p id="visitor-score-id"></p>
+          <div class="div2 score-style visitor-score">
+            <div class="score" id="visitor-score-id">0</div>
           </div>
-          <div class="div3 score home-score">
-            <p id="home-score-id"></p>
+          <div class="div3 score-style home-score">
+            <div class="score" id="home-score-id">0</div>
           </div>
           <div class="div7 record record-visitor">2-4</div>
           <div class="div6 record record-home">4-2</div>
@@ -117,64 +117,67 @@
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
           <div class="controls-score">
+            <button class="currentScore" onclick="getScore()">
+              Current Score
+            </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="createCoinDiv('6', '.side-visitor'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('6', '.side-visitor'); removeCoinDiv()"
             >
               Visitor Touchdown (6)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="createCoinDiv('1', '.side-visitor'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('1', '.side-visitor'); removeCoinDiv()"
             >
               Visitor Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="createCoinDiv('2', '.side-visitor'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-visitor'); removeCoinDiv()"
             >
               Visitor Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="createCoinDiv('3', '.side-visitor'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('3', '.side-visitor'); removeCoinDiv()"
             >
               Visitor Field Goal (3)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="createCoinDiv('2', '.side-visitor'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-visitor'); removeCoinDiv()"
             >
               Visitor Safety (2)
             </button>
 
             <button
               id="button-score-coin-home-transform"
-              onclick="createCoinDiv('6', '.side-home'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('6', '.side-home'); removeCoinDiv()"
             >
               Home Touchdown (6)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="createCoinDiv('1', '.side-home'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('1', '.side-home'); removeCoinDiv()"
             >
               Home Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="createCoinDiv('2', '.side-home'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-home'); removeCoinDiv()"
             >
               Home Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="createCoinDiv('3', '.side-home'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('3', '.side-home'); removeCoinDiv()"
             >
               Home Field Goal (3)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="createCoinDiv('2', '.side-home'); coinAnimationEndFunction()"
+              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-home'); removeCoinDiv()"
             >
               Home Safety (2)
             </button>

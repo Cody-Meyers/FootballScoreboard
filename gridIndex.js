@@ -74,7 +74,18 @@ function tickerHomeTransformation() {
   element.classList.toggle("transform-hidden");
 }
 
-// -Create Coin DIV's
+// -Try to remove any existing Coin DIV's when present
+function checkForCoinDivToRemoveFirst() {
+  try {
+    const coinDivPresent = document.querySelector(".coin-transform");
+    coinDivPresent.remove(coinDivPresent);
+    console.log("Removed Coin DIV");
+  } catch (error) {
+    console.log("No Coin DIV to Remove");
+  }
+}
+
+// --Create Coin DIV's
 function createCoinDiv(points, side) {
   const eCoin = document.createElement("div");
   const eCoinPoints = document.createTextNode(points);
@@ -88,6 +99,35 @@ function createCoinDiv(points, side) {
 
   document.querySelector(side).appendChild(eCoin);
 }
+
+// ---Select Coin at End of Coin Animation then call function to remove Coin DIV
+function removeCoinDiv() {
+  const animationEndDivRemove = document.querySelector(".coin-transform");
+  animationEndDivRemove.addEventListener("animationend", scoreCoinRemove);
+
+  function scoreCoinRemove() {
+    const coinDiv = document.querySelector(".coin-transform");
+    coinDiv.remove(coinDiv);
+  }
+}
+// ---Select Coin at End of Coin Animation then call function to remove Coin DIV
+// function coinAnimationEndFunction() {
+//   const animationEndDivRemove = document.querySelector(".coin-transform");
+//   animationEndDivRemove.addEventListener("animationend", scoreCoinRemove);
+// }
+// ----Remove Coin DIV
+// function scoreCoinRemove() {
+//   const coinDiv = document.querySelector(".coin-transform");
+//   coinDiv.remove(coinDiv);
+// }
+
+// function homeScoreCoinRemove() {
+//   const eHomeScoreCoinDivParent = document.getElementById("home-score-coin-id");
+
+//   if (eHomeScoreCoinDivParent.hasChildNodes()) {
+//     eHomeScoreCoinDivParent.removeChild(eHomeScoreCoinDivParent.children[0]);
+//   }
+// }
 
 // --Visitor Coin DIV Creation
 // function visitorScoreCoin(e) {
@@ -120,14 +160,3 @@ function createCoinDiv(points, side) {
 
 //   document.getElementById("home-score-coin-id").appendChild(eHomeScoreCoin);
 // }
-
-// ---Select Coin at End of Coin Animation then call function to remove Coin DIV
-function coinAnimationEndFunction() {
-  const animationEndDivRemove = document.querySelector(".coin-transform");
-  animationEndDivRemove.addEventListener("animationend", scoreCoinRemove);
-}
-// ---Remove Coin DIV
-function scoreCoinRemove() {
-  const coinDiv = document.querySelector(".coin-transform");
-  coinDiv.remove(coinDiv);
-}
