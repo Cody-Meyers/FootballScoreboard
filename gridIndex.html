@@ -48,18 +48,18 @@
             <p class="home-stat2">h stat2</p>
           </div>
           <div
-            class="div4 score-style child-div-present-check visitor-score-coin side-visitor"
+            class="div4 score-style child-div-present-check visitor-score-coin visitor-coin-points"
             id="visitor-score-coin-id"
           ></div>
           <div
-            class="div5 score-style child-div-present-check home-score-coin side-home"
+            class="div5 score-style child-div-present-check home-score-coin home-coin-points"
             id="home-score-coin-id"
           ></div>
           <div class="div2 score-style visitor-score">
-            <div class="score" id="visitor-score-id">0</div>
+            <div class="score visitor-score-points">0</div>
           </div>
           <div class="div3 score-style home-score">
-            <div class="score" id="home-score-id">0</div>
+            <div class="score home-score-points">0</div>
           </div>
           <div class="div7 record record-visitor">2-4</div>
           <div class="div6 record record-home">4-2</div>
@@ -120,64 +120,108 @@
             <button class="currentScore" onclick="getScore()">
               Current Score
             </button>
+            <form class="setVisitorScoreFormClass" id="setVisitorScoreForm">
+              <input
+                type="number"
+                id="setVisitorScoreId"
+                class="setVisitorScoreInputClass"
+                placeholder="Enter Visitor Score"
+              />
+              <input
+                type="button"
+                onclick="setScore('.setVisitorScoreFormClass', '.setVisitorScoreInputClass', '.visitor-score-points')"
+                value="Set Visitor Score"
+              />
+            </form>
+            <button
+              id="visitor-score-reset"
+              onclick="resetScore('.visitor-score-points')"
+            >
+              Reset Visitor Score
+            </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('6', '.side-visitor'); removeCoinDiv()"
+              onclick="scoringFunction(6, '.visitor-coin-points', '.visitor-score-points')"
             >
               Visitor Touchdown (6)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('1', '.side-visitor'); removeCoinDiv()"
+              onclick="scoringFunction(1, '.visitor-coin-points', '.visitor-score-points')"
             >
               Visitor Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-visitor'); removeCoinDiv()"
+              onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
             >
               Visitor Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('3', '.side-visitor'); removeCoinDiv()"
+              onclick="scoringFunction(3, '.visitor-coin-points', '.visitor-score-points')"
             >
               Visitor Field Goal (3)
             </button>
             <button
               id="button-score-coin-visitor-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-visitor'); removeCoinDiv()"
+              onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
             >
               Visitor Safety (2)
             </button>
 
+            <form class="setHomeScoreFormClass" id="setHomeScoreForm">
+              <input
+                type="number"
+                id="setHomeScoreId"
+                class="setHomeScoreInputClass"
+                placeholder="Enter Home Score"
+              />
+              <input
+                type="button"
+                onclick="setScore('.setHomeScoreFormClass', '.setHomeScoreInputClass', '.home-score-points')"
+                value="Set Home Score"
+              />
+            </form>
+            <button
+              id="home-score-reset"
+              onclick="resetScore('.home-score-points')"
+            >
+              Reset Home Score
+            </button>
+            <button
+              id="home-score-reset"
+              onclick="resetScore('.home-score-points')"
+            >
+              Reset Home Score
+            </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('6', '.side-home'); removeCoinDiv()"
+              onclick="scoringFunction(6, '.home-coin-points', '.home-score-points')"
             >
               Home Touchdown (6)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('1', '.side-home'); removeCoinDiv()"
+              onclick="scoringFunction(1, '.home-coin-points', '.home-score-points')"
             >
               Home Extra Point Kick (1)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-home'); removeCoinDiv()"
+              onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
             >
               Home Extra 2-Point Success (2)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('3', '.side-home'); removeCoinDiv()"
+              onclick="scoringFunction(3, '.home-coin-points', '.home-score-points')"
             >
               Home Field Goal (3)
             </button>
             <button
               id="button-score-coin-home-transform"
-              onclick="checkForCoinDivToRemoveFirst(); createCoinDiv('2', '.side-home'); removeCoinDiv()"
+              onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
             >
               Home Safety (2)
             </button>

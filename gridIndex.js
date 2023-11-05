@@ -74,6 +74,29 @@ function tickerHomeTransformation() {
   element.classList.toggle("transform-hidden");
 }
 
+// Reset Score
+function resetScore(side) {
+  document.querySelector(side).innerText = "0";
+}
+
+// Set Score Manually
+function setScore(setFormClass, setInputClass, side) {
+  const enteredScore = document.querySelector(setInputClass).value;
+  console.log(enteredScore);
+
+  document.querySelector(side).innerText = "";
+  document.querySelector(side).append(enteredScore);
+  document.querySelector(setFormClass).reset();
+}
+
+// Scoring Function
+function scoringFunction(points, coinPoints, scorePoints) {
+  checkForCoinDivToRemoveFirst();
+  createCoinDiv(points, coinPoints);
+  removeCoinDiv();
+  addPointsToScore(points, scorePoints);
+}
+
 // -Try to remove any existing Coin DIV's when present
 function checkForCoinDivToRemoveFirst() {
   try {
@@ -110,6 +133,17 @@ function removeCoinDiv() {
     coinDiv.remove(coinDiv);
   }
 }
+
+// -Using current Score add new points and display in Score section
+function addPointsToScore(points, side) {
+  const currentScore = Number(document.querySelector(side).innerText);
+  const pointsToAdd = points;
+  const newScore = currentScore + pointsToAdd;
+
+  document.querySelector(side).innerText = "";
+  document.querySelector(side).append(newScore);
+}
+
 // ---Select Coin at End of Coin Animation then call function to remove Coin DIV
 // function coinAnimationEndFunction() {
 //   const animationEndDivRemove = document.querySelector(".coin-transform");
@@ -160,3 +194,114 @@ function removeCoinDiv() {
 
 //   document.getElementById("home-score-coin-id").appendChild(eHomeScoreCoin);
 // }
+
+// const API_URL = "http://localhost:3500";
+
+// fetch("http://localhost:3500/scores", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     id: 2,
+//     "score-visitor": 2,
+//     points: 1,
+//   }),
+// })
+//   .then((response) => response.json())
+//   .then((response) => console.log(response.status));
+
+fetch("http://localhost:3500/scores")
+  .then((response) => response.json())
+  .then((response) => console.log(response));
+
+fetch("http://localhost:3500/scores")
+  .then((response) => response.json())
+  .then((response) => console.log(JSON.stringify(response)));
+
+// fetch("http://localhost:3500/scores")
+// .then((response) => response.json()).map(scores.points)
+
+// let visitorScoring = document.getElementById("visitor-score-points");
+
+getScores = async () => {
+  const visitorScoring = document.getElementById("visitor-score-points");
+  fetch("http://localhost:3500/scores/1")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(JSON.stringify(data));
+      visitorScoring.innerHTML(`${data.score}`);
+      // data.forEach((x) => {
+      //   console.log(data);
+      //   visitorScoring.innerHTML(`<h2>${x.score}</h2>`);
+    });
+};
+// const visitorScoring = document.getElementById("visitor-score-points");
+// const objToParse = JSON.parse(grabScore.map());
+// visitorScoring.innerHTML = objToParse.score;
+
+// getScores = async (x) => {
+//   const grabScore = await fetch("http://localhost:3500/visitorScore").then(
+//     (response) => response.json()
+//   );
+//   const visitorScoring = document.getElementById("visitor-score-points");
+//   const objToParse = JSON.parse(grabScore.map());
+//   visitorScoring.innerHTML = objToParse.score;
+// };
+
+// getScores = async (x) => {
+//   const grabScore = await fetch("http://localhost:3500/visitorScore").then(
+//     (response) => response.json()
+//   );
+//   visitorScoring.innerHTML = grabScore.map(x) => {
+//     JSON.stringify(x.score)
+//     return response;
+//   };
+// };
+
+// return (visitorScoring.innerHTMl = await grabScore.map((x) => {
+//   return JSON.stringify(x.score);
+// }
+
+// const scoring = (getScores = async (x) => {
+//   const grabScore = await fetch("http://localhost:3500/visitorScore").then(
+//     (response) => response.json()
+//   );
+//   return (visitorScoring.innerHTMl = grabScore.map((x) => {
+//     return JSON.stringify(x.score);
+//   }));
+// });
+
+// return visitorScore.append.(grabScore.score).innerHTML;
+
+// const async getScores = () => {
+//   return (visitorScore.innerHTML = await fetch(
+//     "http://localhost:3500/visitorScore"
+//   ).then((response) => response.json()));
+// };
+
+getScores();
+
+// async function getScore() {
+//   try {
+//     const response = await fetch(API_URL);
+//     const listScore = await response.json();
+//     setItems(listScore);
+//     console.log(listScore);
+//   } catch (error) {
+//     console.log(error.stack);
+//   }
+//   async () => await getScore();
+// }
+// [];
+
+// const currentVisitorScore =
+//   document.getElementById("visitor-score-points").innerHTML;
+// console.log(currentVisitorScore);
+
+// const currentScore = {
+//   score: 1,
+//   logScore: function () {
+//     console.log(this.score);
+//   },
+// };
