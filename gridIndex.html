@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Football Scorekeeper</title>
     <link rel="stylesheet" href="./gridIndex.css" />
+    <script src="./gridIndex.js" defer></script>
   </head>
   <body>
     <div class="container-page">
@@ -254,6 +255,105 @@
             <button id="button-aside-v-transform">V Stat Transform</button>
             <button id="button-aside-h-transform">H Stat Transform</button>
           </div>
+          <div class="tempScores">
+            <div class="tempVisitorScore" style="width: 50px; height: 50px">
+              0
+            </div>
+          </div>
+          <div class="playsParent playsParentStyle">
+            <div class="plays">
+              <form class="playsForm" id="playsFormId">
+                <label for="formUniqueId">Unique ID</label>
+                <input type="number" name="id" id="formUniqueId" />
+                <label for="sideSelect">Select Possession Side</label>
+                <select name="side" id="sideSelect">
+                  <option value="visitor">Visitor</option>
+                  <option value="home">Home</option>
+                </select>
+                <label for="typeOfPlay">Select Type of Play</label>
+                <select name="type_of_play" id="typeOfPlay">
+                  <option value="pass">Pass</option>
+                  <option value="rush">Rush</option>
+                </select>
+                <label for="attemptedPlay">Attempted Play</label>
+                <input
+                  type="radio"
+                  checked="checked"
+                  name="attempted_play"
+                  id="attemptedPlay"
+                />
+                <label for="completedPlay">Completed Play</label>
+                <input type="radio" name="completed_play" id="completedPlay" />
+                <label for="playerOneNumber"
+                  >Offensive Player with Ball #</label
+                >
+                <input
+                  type="number"
+                  max="99"
+                  min="1"
+                  name="player_one_number"
+                  id="playerOneNumber"
+                  placeholder="Player #"
+                />
+                <label for="playerTwoNumber">Offensive Receiver Player #</label>
+                <input
+                  type="number"
+                  max="99"
+                  min="1"
+                  name="player_two_number"
+                  id="playerTwoNumber"
+                  placeholder="Player #"
+                />
+                <label for="positiveYards">Positive Yards #</label>
+                <input
+                  type="number"
+                  max="100"
+                  min="0"
+                  name="positive_yards"
+                  id="positiveYards"
+                  placeholder="Yards #"
+                />
+                <label for="negativeYards">Negative Yards #</label>
+                <input
+                  type="number"
+                  name="negative_yards"
+                  id="negativeYards"
+                  placeholder="Yards #"
+                />
+                <label for="tackledByNumber">Defensive Player #</label>
+                <input
+                  type="number"
+                  max="99"
+                  min="1"
+                  name="tackled_by_number"
+                  id="tackledByNumber"
+                  placeholder="Player #"
+                />
+                <label for="playResult">Result of Play</label>
+                <select name="play_result" id="playResult">
+                  <option value="tackle">Tackle</option>
+                  <option value="sack">QB Sack</option>
+                  <option value="outOfBounds">Out of Bounds</option>
+                  <option value="intercepted">Intercepted</option>
+                  <option value="flag">Flag</option>
+                  <option value="touchdown">Touchdown (6)</option>
+                  <option value="extraPointKick">Extra Point Kick (1)</option>
+                  <option value="extraPointTwoPoint">
+                    Extra Point 2-Point (2)
+                  </option>
+                  <option value="fieldGoal">Field Goal (3)</option>
+                  <option value="Safety">Safety (2)</option>
+                </select>
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="playSubmit"
+                  id="playSubmitId"
+                  onsubmit="return false"
+                />
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="box container-footer">
@@ -261,5 +361,4 @@
       </footer>
     </div>
   </body>
-  <script src="./gridIndex.js"></script>
 </html>

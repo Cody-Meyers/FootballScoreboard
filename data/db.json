@@ -1,0 +1,142 @@
+{
+  "visitorScores": [
+    {
+      "id": 1,
+      "score": 6
+    },
+    {
+      "id": 2,
+      "score": 3
+    }
+  ],
+  "homeScores": [
+    {
+      "id": 1,
+      "score": 3
+    },
+    {
+      "id": 2,
+      "score": 2
+    },
+    {
+      "id": 3,
+      "score": 1
+    }
+  ],
+  "cowboysRoster": [
+    {
+      "player_id": 1,
+      "player_first_name": "Bryan",
+      "player_last_name": "Anger",
+      "number": 5,
+      "position": "P"
+    },
+    {
+      "player_id": 2,
+      "player_first_name": "Dorance",
+      "player_last_name": "Armstrong",
+      "number": 92,
+      "position": "DE"
+    },
+    {
+      "player_id": 3,
+      "player_first_name": "Brandon",
+      "player_last_name": "Aubrey",
+      "number": 17,
+      "position": "K"
+    }
+  ],
+  "seahawksRoster": [
+    {
+      "player_id": 1,
+      "player_first_name": "Jamal",
+      "player_last_name": "Adams",
+      "number": 33,
+      "position": "SS"
+    },
+    {
+      "player_id": 2,
+      "player_first_name": "Myles",
+      "player_last_name": "Adams",
+      "number": 95,
+      "position": "DE"
+    },
+    {
+      "player_id": 3,
+      "player_first_name": "Nick",
+      "player_last_name": "Bellore",
+      "number": 44,
+      "position": "LB"
+    }
+  ],
+  "plays": [
+    {
+      "play_id": 1,
+      "side": "visitor",
+      "type_of_play": "pass",
+      "attempted_play": 1,
+      "completed_play": 1,
+      "player_one_number": 92,
+      "player_two_number": 17,
+      "positive_yards": 4,
+      "negative_yards": 0,
+      "play_result": "tackle",
+      "tackled_by_number": 44
+    },
+    {
+      "play_id": 2,
+      "side": "home",
+      "type_of_play": "rush",
+      "attempted_play": 1,
+      "completed_play": "NULL",
+      "player_one_number": 33,
+      "player_two_number": 44,
+      "positive_yards": 6,
+      "negative_yards": 0,
+      "play_result": "tackle",
+      "tackled_by_number": 5
+    },
+    {
+      "id": "4",
+      "player_one_number": "5"
+    },
+    {
+      "id": "5",
+      "side": "visitor",
+      "type_of_play": "pass",
+      "attempted_play": "on",
+      "completed_play": "on",
+      "player_one_number": "4",
+      "player_two_number": "44",
+      "positive_yards": "5",
+      "negative_yards": "0",
+      "tackled_by_number": "92",
+      "play_result": "tackle"
+    },
+    {
+      "id": "6",
+      "side": "visitor",
+      "type_of_play": "pass",
+      "attempted_play": "on",
+      "player_one_number": "6",
+      "player_two_number": "2",
+      "positive_yards": "0",
+      "negative_yards": "-1",
+      "tackled_by_number": "66",
+      "play_result": "sack"
+    },
+    {
+      "id": "7",
+      "side": "visitor",
+      "type_of_play": "rush",
+      "attempted_play": "on",
+      "completed_play": "on",
+      "player_one_number": "7",
+      "player_two_number": "",
+      "positive_yards": "5",
+      "negative_yards": "",
+      "tackled_by_number": "99",
+      "play_result": "tackle"
+    }
+  ]
+}

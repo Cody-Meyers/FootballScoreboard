@@ -112,30 +112,92 @@ function addPointsToScore(points, side) {
   document.querySelector(side).append(newScore);
 }
 
-// fetch("http://localhost:3500/scores")
-//   .then((response) => response.json())
-//   .then((response) => console.log(response));
+const API_URL = "http://localhost:3500";
 
-// fetch("http://localhost:3500/scores")
-//   .then((response) => response.json())
-//   .then((response) => console.log(JSON.stringify(response)));
+const visitorScoring = fetch("http://localhost:3500/visitorScores/", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => showScore(data));
+// .then((response) => console.log(JSON.stringify(response)));
 
-// // fetch("http://localhost:3500/scores")
-// // .then((response) => response.json()).map(scores.points)
+const homeScoring = fetch("http://localhost:3500/homeScores/", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => showScores(data));
 
-// // let visitorScoring = document.getElementById("visitor-score-points");
+function showScores(data) {
+  let sum = 0;
+  console.log(data);
+  console.log(data[0]);
+  console.log(data[0].score);
+  console.log(data.length);
 
-// getScores = async () => {
-//   const visitorScoring = document.getElementById("visitor-score-points");
-//   fetch("http://localhost:3500/scores/1")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(JSON.stringify(data));
-//       visitorScoring.innerHTML(`${data.score}`);
-//       // data.forEach((x) => {
-//       //   console.log(data);
-//       //   visitorScoring.innerHTML(`<h2>${x.score}</h2>`);
-//     });
-// };
+  data.forEach(addVisitorScores);
+  function addVisitorScores(data) {
+    sum += data.score;
+  }
+  console.log(sum);
+}
 
-// getScores();
+function showScore(data) {
+  let sum = 0;
+  data.forEach(addVisitorScore);
+
+  function addVisitorScore(data) {
+    sum += data.score;
+    let displayVisitorScore = document.querySelector(".tempVisitorScore");
+    displayVisitorScore.innerText = sum;
+  }
+  // document.querySelector(".tempVisitorScore").innerText = displayVisitorScore;
+  // document.querySelector(".tempVisitorScore").append(displayVisitorScore);
+}
+
+const playFormEl = document.querySelector(".playsForm");
+playFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  playFormSubmit();
+});
+
+async function playFormSubmit() {
+  const formData = new FormData(playFormEl);
+  console.log(formData.get("player_one_number"));
+  const formDataEntries = Object.fromEntries(formData);
+  console.log(formDataEntries);
+  try {
+    const res = await fetch("http://localhost:3500/plays/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formDataEntries),
+    });
+    const dataResponseData = await res.json();
+    console.log(dataResponseData);
+    if (!res.ok) {
+      console.log(dataResponseData.description);
+      return;
+    }
+    console.log(dataResponseData);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// async function playFormSubmit() {
+//   const formData = new FormData(playFormEl);
+//   console.log(formData);
+//   const formDataEntries = Object.fromEntries(formData);
+//   console.log(formDataEntries);
+//   const res = JSON.stringify(formDataEntries);
+//   console.log(res);
+//   const dataResponseData = res.parse;
+//   console.log(dataResponseData);
+// }
