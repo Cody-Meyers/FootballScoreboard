@@ -44,6 +44,13 @@
       "player_last_name": "Aubrey",
       "number": 17,
       "position": "K"
+    },
+    {
+      "player_id": 4,
+      "player_first_name": "Dak",
+      "player_last_name": "Prescott",
+      "number": 4,
+      "position": "QB"
     }
   ],
   "seahawksRoster": [
@@ -71,71 +78,49 @@
   ],
   "plays": [
     {
-      "play_id": 1,
-      "side": "visitor",
-      "type_of_play": "pass",
-      "attempted_play": 1,
-      "completed_play": 1,
-      "player_one_number": 92,
-      "player_two_number": 17,
-      "positive_yards": 4,
-      "negative_yards": 0,
-      "play_result": "tackle",
-      "tackled_by_number": 44
-    },
-    {
-      "play_id": 2,
-      "side": "home",
-      "type_of_play": "rush",
-      "attempted_play": 1,
-      "completed_play": "NULL",
-      "player_one_number": 33,
-      "player_two_number": 44,
-      "positive_yards": 6,
-      "negative_yards": 0,
-      "play_result": "tackle",
-      "tackled_by_number": 5
-    },
-    {
-      "id": "4",
-      "player_one_number": "5"
-    },
-    {
-      "id": "5",
+      "id": "fc7c9803-7cef-46a0-a10f-0268ece741e5",
       "side": "visitor",
       "type_of_play": "pass",
       "attempted_play": "on",
-      "completed_play": "on",
-      "player_one_number": "4",
-      "player_two_number": "44",
-      "positive_yards": "5",
-      "negative_yards": "0",
-      "tackled_by_number": "92",
+      "player_one_number": "",
+      "player_two_number": "",
+      "positive_yards": "",
+      "negative_yards": "",
+      "tackled_by_number": "",
       "play_result": "tackle"
     },
     {
-      "id": "6",
+      "id": "26c2ed1e-a98b-4f96-9cbe-f679f840689b",
       "side": "visitor",
       "type_of_play": "pass",
-      "attempted_play": "on",
-      "player_one_number": "6",
-      "player_two_number": "2",
-      "positive_yards": "0",
-      "negative_yards": "-1",
-      "tackled_by_number": "66",
-      "play_result": "sack"
+      "player_one_number": "",
+      "player_two_number": "",
+      "positive_yards": "",
+      "negative_yards": "",
+      "tackled_by_number": "",
+      "play_result": "tackle"
     },
     {
-      "id": "7",
+      "id": "a2d3327c-c5bc-4eeb-9943-2097f2f6332e",
       "side": "visitor",
       "type_of_play": "rush",
-      "attempted_play": "on",
-      "completed_play": "on",
-      "player_one_number": "7",
+      "player_one_number": "",
       "player_two_number": "",
-      "positive_yards": "5",
+      "positive_yards": "",
       "negative_yards": "",
-      "tackled_by_number": "99",
+      "tackled_by_number": "",
+      "play_result": "tackle"
+    },
+    {
+      "id": "f25dfce3-8273-46a2-a0a8-5edc65c58470",
+      "side": "visitor",
+      "type_of_play": "pass",
+      "completed_play": "on",
+      "player_one_number": "",
+      "player_two_number": "",
+      "positive_yards": "",
+      "negative_yards": "",
+      "tackled_by_number": "",
       "play_result": "tackle"
     }
   ]

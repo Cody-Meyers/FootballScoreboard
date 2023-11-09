@@ -112,8 +112,6 @@ function addPointsToScore(points, side) {
   document.querySelector(side).append(newScore);
 }
 
-const API_URL = "http://localhost:3500";
-
 const visitorScoring = fetch("http://localhost:3500/visitorScores/", {
   method: "GET",
   headers: {
@@ -160,13 +158,22 @@ function showScore(data) {
   // document.querySelector(".tempVisitorScore").append(displayVisitorScore);
 }
 
+// API Options
+const API_URL_JSONSERVER = "http://localhost:3500/";
+const API_URL_REQRES = "https://reqres.in/api/users";
+
+// Play Form Submission to API
 const playFormEl = document.querySelector(".playsForm");
 playFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
   playFormSubmit();
 });
-
 async function playFormSubmit() {
+  const grabIdEl = document.querySelector("#formUniqueId");
+  const randomIdGenerated = crypto.randomUUID();
+  grabIdEl.value = randomIdGenerated;
+  console.log("Play ID: " + randomIdGenerated);
+
   const formData = new FormData(playFormEl);
   console.log(formData.get("player_one_number"));
   const formDataEntries = Object.fromEntries(formData);
@@ -191,7 +198,144 @@ async function playFormSubmit() {
   }
 }
 
-// async function playFormSubmit() {
+const vQuarterbackStatsEl = document.querySelector(".vQuarterbackStats");
+vQuarterbackStatsEl.addEventListener("click", (event) => {
+  event.preventDefault();
+  qbStatsFunction();
+});
+
+const qbStatsFunction = async () => {
+  try {
+    const res = await fetch("http://localhost:3500/cowboysRoster/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const dataResponseData = (response = await res.json());
+    console.log(dataResponseData);
+
+    const response2 = await fetch("http://localhost:3500/plays/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const dataResponseData2 = (response = await response2.json());
+    console.log(dataResponseData2);
+
+    if (!res.ok) {
+      console.log(dataResponseData.description);
+      return;
+    }
+
+    // Filter API Visitor Team Response Data by QB Position
+    const filteredQbObjects = dataResponseData.filter(
+      (object) => object.position === "QB"
+    );
+    console.log(filteredQbObjects);
+
+    // Visitor Ticker QB Number Insertion
+    const vTickerNumberEl = document.querySelector(".vTickerNumber");
+    const qbNumber = filteredQbObjects[0].number;
+    console.log(qbNumber);
+    vTickerNumberEl.innerText = qbNumber;
+
+    // Visitor Ticker QB Position Insertion
+    const vTickerLeftEl = document.querySelector(".vTickerLeft");
+    const qbPosition = filteredQbObjects[0].position;
+    vTickerLeftEl.innerText = qbPosition;
+
+    // Visitor Ticker QB Name Insertion
+    const vTickerCenterEl = document.querySelector(".vTickerCenter");
+    const qbFirstName = filteredQbObjects[0].player_first_name;
+    const qbLastName = filteredQbObjects[0].player_last_name;
+    vTickerCenterEl.innerText = qbFirstName + " " + qbLastName;
+
+    // Filter API Plays Response Data by 'visitor' side Completed Passes
+    const filteredPassPlaysCompletedObjects = dataResponseData2.filter(
+      (object) =>
+        object.side === "visitor" &&
+        object.type_of_play === "pass" &&
+        object.completed_play === "on"
+    );
+    console.log(filteredPassPlaysCompletedObjects);
+    console.log(filteredPassPlaysCompletedObjects.length);
+
+    // Filter API Plays Response Data by 'visitor' side Attempted Passes
+    const filteredPassPlaysObjects = dataResponseData2.filter(
+      (object) => object.side === "visitor" && object.type_of_play === "pass"
+    );
+    console.log(filteredPassPlaysObjects);
+    console.log(filteredPassPlaysObjects.length);
+
+    const vTickerRightEl = document.querySelector(".vTickerRight");
+    const completedPasses = filteredPassPlaysCompletedObjects.length;
+    const attemptedPasses = filteredPassPlaysObjects.length;
+    vTickerRightEl.innerText =
+      "Passing: " + completedPasses + " / " + attemptedPasses;
+
+    tickerTransformation(
+      ".header-ticker-visitor",
+      ".header-ticker-center",
+      ".header-ticker-home"
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+// const qbStatsFunction = async () => {
+//   try {
+//     const res = await fetch("http://localhost:3500/cowboysRoster/", {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+
+//     const dataResponseData = (response = await res.json());
+//     console.log(dataResponseData);
+
+//     if (!res.ok) {
+//       console.log(dataResponseData.description);
+//       return;
+//     }
+
+//     // Filter API Visitor Team Response Data by QB Position
+//     const filteredQbObjects = dataResponseData.filter(
+//       (object) => object.position === "QB"
+//     );
+//     console.log(filteredQbObjects);
+
+//     // Visitor Ticker QB Number Insertion
+//     const vTickerNumberEl = document.querySelector(".vTickerNumber");
+//     const qbNumber = filteredQbObjects[0].number;
+//     console.log(qbNumber);
+//     vTickerNumberEl.innerText = qbNumber;
+
+//     // Visitor Ticker QB Position Insertion
+//     const vTickerLeftEl = document.querySelector(".vTickerLeft");
+//     const qbPosition = filteredQbObjects[0].position;
+//     vTickerLeftEl.innerText = qbPosition;
+
+//     // Visitor Ticker QB Name Insertion
+//     const vTickerCenterEl = document.querySelector(".vTickerCenter");
+//     const qbFirstName = filteredQbObjects[0].player_first_name;
+//     const qbLastName = filteredQbObjects[0].player_last_name;
+//     vTickerCenterEl.innerText = qbFirstName + " " + qbLastName;
+
+//     tickerTransformation(
+//       ".header-ticker-visitor",
+//       ".header-ticker-center",
+//       ".header-ticker-home"
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// Unused Info below vvv
+// async function testInfo() {
 //   const formData = new FormData(playFormEl);
 //   console.log(formData);
 //   const formDataEntries = Object.fromEntries(formData);
@@ -201,3 +345,5 @@ async function playFormSubmit() {
 //   const dataResponseData = res.parse;
 //   console.log(dataResponseData);
 // }
+
+// testInfo();
