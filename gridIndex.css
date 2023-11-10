@@ -496,3 +496,7 @@ table {
     rgb(206, 180, 180, 1) 10.05%
   );
 }
+
+.plays-form-display-none {
+  display: none;
+}

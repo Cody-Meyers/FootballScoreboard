@@ -78,50 +78,69 @@
   ],
   "plays": [
     {
-      "id": "fc7c9803-7cef-46a0-a10f-0268ece741e5",
-      "side": "visitor",
-      "type_of_play": "pass",
-      "attempted_play": "on",
-      "player_one_number": "",
-      "player_two_number": "",
-      "positive_yards": "",
-      "negative_yards": "",
-      "tackled_by_number": "",
-      "play_result": "tackle"
-    },
-    {
-      "id": "26c2ed1e-a98b-4f96-9cbe-f679f840689b",
-      "side": "visitor",
-      "type_of_play": "pass",
-      "player_one_number": "",
-      "player_two_number": "",
-      "positive_yards": "",
-      "negative_yards": "",
-      "tackled_by_number": "",
-      "play_result": "tackle"
-    },
-    {
-      "id": "a2d3327c-c5bc-4eeb-9943-2097f2f6332e",
-      "side": "visitor",
+      "id": "79b80375-a43f-451a-ab73-bea98b7d4acc",
       "type_of_play": "rush",
-      "player_one_number": "",
-      "player_two_number": "",
-      "positive_yards": "",
+      "side": "visitor",
+      "completed_play": "incomplete",
+      "player_passer_number": "",
+      "player_receiver_number": "",
+      "player_rusher_number": "22",
+      "positive_yards": "6",
       "negative_yards": "",
-      "tackled_by_number": "",
-      "play_result": "tackle"
+      "play_result": "tackle",
+      "tackled_by_number": "77"
     },
     {
-      "id": "f25dfce3-8273-46a2-a0a8-5edc65c58470",
-      "side": "visitor",
+      "id": "e4c21bb8-1f89-462e-9f12-1307040501c3",
       "type_of_play": "pass",
-      "completed_play": "on",
-      "player_one_number": "",
-      "player_two_number": "",
-      "positive_yards": "",
+      "side": "visitor",
+      "completed_play": "completed",
+      "player_passer_number": "4",
+      "player_receiver_number": "88",
+      "player_rusher_number": "",
+      "positive_yards": "4",
       "negative_yards": "",
-      "tackled_by_number": "",
-      "play_result": "tackle"
+      "play_result": "tackle",
+      "tackled_by_number": "66"
+    },
+    {
+      "id": "1c9dead0-44ee-4c08-86fe-f025307f6bae",
+      "type_of_play": "rush",
+      "side": "offensiveside",
+      "completed_play": "incomplete",
+      "player_passer_number": "",
+      "player_receiver_number": "",
+      "player_rusher_number": "6",
+      "positive_yards": "",
+      "negative_yards": "2",
+      "play_result": "tackle",
+      "tackled_by_number": "55"
+    },
+    {
+      "id": "eb27ed2a-59af-411c-b241-6ed48d06a9d7",
+      "type_of_play": "pass",
+      "side": "offensiveside",
+      "completed_play": "completed",
+      "player_passer_number": "4",
+      "player_receiver_number": "66",
+      "player_rusher_number": "",
+      "positive_yards": "4",
+      "negative_yards": "",
+      "play_result": "tackle",
+      "tackled_by_number": "22"
+    },
+    {
+      "id": "437bbc87-e3b2-4d4a-886e-f14c0d882a24",
+      "type_of_play": "rush",
+      "side": "home",
+      "completed_play": "incomplete",
+      "player_passer_number": "",
+      "player_receiver_number": "",
+      "player_rusher_number": "3",
+      "positive_yards": "13",
+      "negative_yards": "",
+      "play_result": "outOfBounds",
+      "tackled_by_number": ""
     }
   ]
 }

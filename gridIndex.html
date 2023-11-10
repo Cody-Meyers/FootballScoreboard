@@ -23,21 +23,21 @@
           <div
             class="div17 header-ticker-style header-ticker-background-style header-ticker-visitor transform-hidden"
           >
-            <h4 class="vTickerNumberStyle vTickerNumber">V#</h4>
-            <h4 class="vTickerLeftStyle vTickerLeft">Position</h4>
-            <h4 class="vTickerCenterStyle vTickerCenter">V Name</h4>
-            <h4 class="vTickerRightStyle vTickerRight">V Info</h4>
+            <div class="vTickerNumberStyle vTickerNumber">V#</div>
+            <div class="vTickerLeftStyle vTickerLeft">Position</div>
+            <div class="vTickerCenterStyle vTickerCenter">V Name</div>
+            <div class="vTickerRightStyle vTickerRight">V Info</div>
           </div>
           <div
             class="div16 header-ticker-style header-ticker-background-style header-ticker-home transform-hidden"
           >
-            <h4 class="hTickerNumberStyle hTickerNumber">H#</h4>
-            <h4 class="hTickerLeftStyle hTickerLeft">Position</h4>
-            <h4 class="hTickerCenterStyle hTickerCenter">H Name</h4>
-            <h4 class="hTickerRightStyle hTickerRight">H Info</h4>
+            <div class="hTickerNumberStyle hTickerNumber">H#</div>
+            <div class="hTickerLeftStyle hTickerLeft">Position</div>
+            <div class="hTickerCenterStyle hTickerCenter">H Name</div>
+            <div class="hTickerRightStyle hTickerRight">H Info</div>
           </div>
           <div class="div15 header-ticker-center transform-hidden">
-            <h4>FLAG</h4>
+            <div>FLAG</div>
           </div>
           <div class="div21 logo-background"></div>
           <div class="div9 logo-style logo-visitor">
@@ -119,7 +119,7 @@
         </div>
       </div>
       <div class="box container-controls">
-        <h2>controls</h2>
+        <h2 class="controlsTitle">Controls</h2>
         <div class="controls-main">
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
@@ -264,82 +264,117 @@
           </div>
           <div class="playsParent playsParentStyle">
             <div class="plays">
+              <h2 class="playsFormTitle">Play Form</h2>
               <form class="playsForm" id="playsFormId">
                 <input type="hidden" name="id" id="formUniqueId" />
-                <label for="sideSelect">Possession Side</label>
-                <select name="side" id="sideSelect">
-                  <option value="visitor">Visitor</option>
-                  <option value="home">Home</option>
-                </select>
-                <label for="typeOfPlay">Type of Play</label>
-                <select name="type_of_play" id="typeOfPlay">
+                <select
+                  name="type_of_play"
+                  class="typeOfPlay"
+                  id="typeOfPlayId"
+                >
+                  <option value="typeofplayvalue">Type of Play</option>
                   <option value="pass">Pass</option>
                   <option value="rush">Rush</option>
                 </select>
-                <label for="attemptedPlay">Attempted Pass (Failed)</label>
-                <input type="radio" name="attempted_play" id="attemptedPlay" />
-                <label for="completedPlay">Completed Pass (Success)</label>
-                <input type="radio" name="completed_play" id="completedPlay" />
-                <label for="playerOneNumber">Offensive Passer/Rusher #</label>
-                <input
-                  type="number"
-                  max="99"
-                  min="1"
-                  name="player_one_number"
-                  id="playerOneNumber"
-                  placeholder="Player #"
-                />
-                <label for="playerTwoNumber">Offensive (Pass) Receiver #</label>
-                <input
-                  type="number"
-                  max="99"
-                  min="1"
-                  name="player_two_number"
-                  id="playerTwoNumber"
-                  placeholder="Player #"
-                />
-                <label for="positiveYards">Yards Gained</label>
-                <input
-                  type="number"
-                  max="100"
-                  min="0"
-                  name="positive_yards"
-                  id="positiveYards"
-                  placeholder="Yards #"
-                />
-                <label for="negativeYards">Yards Lost</label>
-                <input
-                  type="number"
-                  max="100"
-                  min="1"
-                  name="negative_yards"
-                  id="negativeYards"
-                  placeholder="Yards #"
-                />
-                <label for="tackledByNumber">Defensive Player #</label>
-                <input
-                  type="number"
-                  max="99"
-                  min="1"
-                  name="tackled_by_number"
-                  id="tackledByNumber"
-                  placeholder="Player #"
-                />
-                <label for="playResult">Result of Play</label>
-                <select name="play_result" id="playResult">
-                  <option value="tackle">Tackle</option>
-                  <option value="sack">QB Sack</option>
-                  <option value="outOfBounds">Out of Bounds</option>
-                  <option value="intercepted">Intercepted</option>
-                  <option value="flag">Flag</option>
-                  <option value="touchdown">Touchdown (6)</option>
-                  <option value="extraPointKick">Extra Point Kick (1)</option>
-                  <option value="extraPointTwoPoint">
-                    Extra Point 2-Point (2)
-                  </option>
-                  <option value="fieldGoal">Field Goal (3)</option>
-                  <option value="Safety">Safety (2)</option>
-                </select>
+                <div class="sideSelectOptions plays-form-display-none">
+                  <select name="side" id="sideSelect">
+                    <option value="offensiveside">Select Offense Side</option>
+                    <option value="visitor">Visitor</option>
+                    <option value="home">Home</option>
+                  </select>
+                </div>
+                <div class="passOptions plays-form-display-none">
+                  <div class="passDiv1">
+                    <label for="completedPlayId">Pass Result:</label>
+                    <select name="completed_play" id="completedPlayId">
+                      <option value="incomplete">Incomplete</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                  </div>
+                  <div class="passDiv2">
+                    <label for="playerPasserNumber">Offense QB/Passer #</label>
+                    <input
+                      type="number"
+                      max="99"
+                      min="1"
+                      name="player_passer_number"
+                      id="playerPasserNumber"
+                      placeholder="Player #"
+                    />
+                  </div>
+                  <div class="passDiv3">
+                    <label for="playerReceiverNumberId">Receiver #</label>
+                    <input
+                      type="number"
+                      max="99"
+                      min="1"
+                      name="player_receiver_number"
+                      class="playerReceiverNumber"
+                      id="playerReceiverNumberId"
+                      placeholder="Player #"
+                    />
+                  </div>
+                </div>
+                <div class="rushOptions plays-form-display-none">
+                  <label for="playerRusherNumber">Offense Rusher #</label>
+                  <input
+                    type="number"
+                    max="99"
+                    min="1"
+                    name="player_rusher_number"
+                    id="playerRusherNumber"
+                    placeholder="Player #"
+                  />
+                </div>
+                <div class="yardsOptions plays-form-display-none">
+                  <label for="positiveYards">Yards Gained</label>
+                  <input
+                    type="number"
+                    max="100"
+                    min="0"
+                    name="positive_yards"
+                    id="positiveYards"
+                    placeholder="Yards #"
+                  />
+                  <label for="negativeYards">Yards Lost</label>
+                  <input
+                    type="number"
+                    max="100"
+                    min="1"
+                    name="negative_yards"
+                    id="negativeYards"
+                    placeholder="Yards #"
+                  />
+                </div>
+                <div class="playResultOptions plays-form-display-none">
+                  <label for="playResult">Result of Play</label>
+                  <select name="play_result" id="playResult">
+                    <option value="tackle">Tackle</option>
+                    <option value="sack">QB Sack</option>
+                    <option value="outOfBounds">Out of Bounds</option>
+                    <option value="intercepted">Intercepted</option>
+                    <option value="fumble">Fumble</option>
+                    <option value="flag">Flag</option>
+                    <option value="touchdown">Touchdown (6)</option>
+                    <option value="extraPointKick">Extra Point Kick (1)</option>
+                    <option value="extraPointTwoPoint">
+                      Extra Point 2-Point (2)
+                    </option>
+                    <option value="fieldGoal">Field Goal (3)</option>
+                    <option value="Safety">Safety (2)</option>
+                  </select>
+                </div>
+                <div class="defenseOptions plays-form-display-none">
+                  <label for="tackledByNumber">Defense Player #</label>
+                  <input
+                    type="number"
+                    max="99"
+                    min="1"
+                    name="tackled_by_number"
+                    id="tackledByNumber"
+                    placeholder="Player #"
+                  />
+                </div>
                 <input
                   type="submit"
                   value="Submit"
@@ -350,6 +385,7 @@
             </div>
           </div>
           <div class="tickerParentControls tickerParentControlsStyle">
+            <h2 class="tickerTitle">Ticker Controls</h2>
             <div class="vTickerControls vTickerControlsStyle">
               <button class="vQuarterbackStats">
                 Visitor Quarterback Ticker Stats

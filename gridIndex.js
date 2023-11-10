@@ -158,6 +158,122 @@ function showScore(data) {
   // document.querySelector(".tempVisitorScore").append(displayVisitorScore);
 }
 
+// Play Form Input Options Display Change based on Selection
+const typeOfPlaySelect = document.querySelector(".typeOfPlay");
+typeOfPlaySelect.addEventListener("change", () => {
+  const playIndex = typeOfPlaySelect.selectedIndex;
+  typeOfPlaySelectFunction(playIndex);
+});
+
+const typeOfPlaySelectFunction = (playIndex) => {
+  console.log("Type of Play Index: " + playIndex);
+  const inputOptionsFormParent = document.querySelector(".playsForm");
+  const inputOptionsFormChildNodes = inputOptionsFormParent.children;
+  const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
+
+  const changeToDisplayBlock = (e) => {
+    e.style.display = "block";
+  };
+
+  const changeToDisplayNone = (e) => {
+    e.style.display = "none";
+  };
+
+  const spliced = (n1, n2, d1) => {
+    arraySpliced = inputOptionsFormParentArray.splice(n1, n2);
+    arraySpliced.forEach(d1);
+  };
+
+  const sliced = (n1, d1) => {
+    arraySliced = inputOptionsFormParentArray.slice(n1);
+    arraySliced.forEach(d1);
+  };
+
+  if (playIndex === 1) {
+    spliced(4, 1, changeToDisplayNone);
+    sliced(2, changeToDisplayBlock);
+  } else if (playIndex === 2) {
+    spliced(3, 1, changeToDisplayNone);
+    sliced(2, changeToDisplayBlock);
+  } else {
+    sliced(2, changeToDisplayNone);
+  }
+};
+
+// Below is Working semi-DRY
+// const typeOfPlaySelect = document.querySelector(".typeOfPlay");
+// typeOfPlaySelect.addEventListener("change", () => {
+//   const playIndex = typeOfPlaySelect.selectedIndex;
+//   typeOfPlaySelectFunction(playIndex);
+// });
+
+// const typeOfPlaySelectFunction = (playIndex) => {
+//   console.log("Type of Play Index: " + playIndex);
+//   const inputOptionsFormParent = document.querySelector(".playsForm");
+//   const inputOptionsFormChildNodes = inputOptionsFormParent.children;
+//   const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
+
+//   const changeToDisplayBlock = (e) => {
+//     e.style.display = "block";
+//   };
+//   const changeToDisplayNone = (e) => {
+//     e.style.display = "none";
+//   };
+
+//   if (playIndex === 1) {
+//     const inputOptionsFormParrentArraySpliced =
+//       inputOptionsFormParentArray.splice(4, 1);
+//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
+//     const inputOptionsFormParrentArraySplicedSliced =
+//       inputOptionsFormParentArray.slice(2);
+//     inputOptionsFormParrentArraySplicedSliced.forEach(changeToDisplayBlock);
+//   } else if (playIndex === 2) {
+//     const inputOptionsFormParrentArraySpliced =
+//       inputOptionsFormParentArray.splice(3, 1);
+//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
+//     const inputOptionsFormParrentArraySplicedSliced =
+//       inputOptionsFormParentArray.slice(2);
+//     inputOptionsFormParrentArraySplicedSliced.forEach(changeToDisplayBlock);
+//   } else {
+//     const inputOptionsFormParrentArraySpliced =
+//       inputOptionsFormParentArray.slice(2);
+//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
+//   }
+// };
+
+// Below is Original Function
+// const typeOfPlaySelectFunction = (playIndex) => {
+//   console.log("Type of Play Index: " + playIndex);
+//   const inputSideOptions = document.querySelector(".sideSelectOptions");
+//   const inputPassOptions = document.querySelector(".passOptions");
+//   const inputRushOptions = document.querySelector(".rushOptions");
+//   const inputYardsOptions = document.querySelector(".yardsOptions");
+//   const inputResultOptions = document.querySelector(".playResultOptions");
+//   const inputDefenseOptions = document.querySelector(".defenseOptions");
+//   if (playIndex === 1) {
+//     inputSideOptions.style.display = "block";
+//     inputPassOptions.style.display = "block";
+//     inputRushOptions.style.display = "none";
+//     inputYardsOptions.style.display = "block";
+//     inputResultOptions.style.display = "block";
+//     inputDefenseOptions.style.display = "block";
+//   } else if (playIndex === 2) {
+//     inputSideOptions.style.display = "block";
+//     inputPassOptions.style.display = "none";
+//     inputRushOptions.style.display = "block";
+//     inputYardsOptions.style.display = "block";
+//     inputResultOptions.style.display = "block";
+//     inputDefenseOptions.style.display = "block";
+//   } else {
+//     inputSideOptions.style.display = "none";
+//     inputPassOptions.style.display = "none";
+//     inputRushOptions.style.display = "none";
+//     inputYardsOptions.style.display = "none";
+//     inputResultOptions.style.display = "none";
+//     inputDefenseOptions.style.display = "none";
+//   }
+// };
+
 // API Options
 const API_URL_JSONSERVER = "http://localhost:3500/";
 const API_URL_REQRES = "https://reqres.in/api/users";
@@ -257,7 +373,7 @@ const qbStatsFunction = async () => {
       (object) =>
         object.side === "visitor" &&
         object.type_of_play === "pass" &&
-        object.completed_play === "on"
+        object.completed_play === "completed"
     );
     console.log(filteredPassPlaysCompletedObjects);
     console.log(filteredPassPlaysCompletedObjects.length);
