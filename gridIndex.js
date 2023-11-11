@@ -158,6 +158,39 @@ function showScore(data) {
   // document.querySelector(".tempVisitorScore").append(displayVisitorScore);
 }
 
+// Array Manipulation Base Functions
+// -Style Display Functions
+const changeToDisplayBlock = (thisArrayValue) => {
+  thisArrayValue.style.display = "block";
+};
+const changeToDisplayNone = (thisArrayValue) => {
+  thisArrayValue.style.display = "none";
+};
+
+// --Splice/Slice Functions
+const spliced = (
+  spliceArrayStartIndexNumber,
+  splaceHowManyIndexNumbers,
+  arrayToRunFunctionOn,
+  styleDisplayFunctionChoice
+) => {
+  arraySpliced = arrayToRunFunctionOn.splice(
+    spliceArrayStartIndexNumber,
+    splaceHowManyIndexNumbers
+  );
+  arraySpliced.forEach(styleDisplayFunctionChoice);
+};
+const sliced = (
+  sliceArrayStartIndexNumber,
+  arrayToRunFunctionOn,
+  styleDisplayFunctionChoice
+) => {
+  arraySliced = arrayToRunFunctionOn.slice(sliceArrayStartIndexNumber);
+  arraySliced.forEach(styleDisplayFunctionChoice);
+};
+
+// Array Fields to Manipulate
+
 // Play Form Input Options Display Change based on Selection
 const typeOfPlaySelect = document.querySelector(".typeOfPlay");
 typeOfPlaySelect.addEventListener("change", () => {
@@ -171,34 +204,52 @@ const typeOfPlaySelectFunction = (playIndex) => {
   const inputOptionsFormChildNodes = inputOptionsFormParent.children;
   const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
 
-  const changeToDisplayBlock = (e) => {
-    e.style.display = "block";
-  };
-
-  const changeToDisplayNone = (e) => {
-    e.style.display = "none";
-  };
-
-  const spliced = (n1, n2, d1) => {
-    arraySpliced = inputOptionsFormParentArray.splice(n1, n2);
-    arraySpliced.forEach(d1);
-  };
-
-  const sliced = (n1, d1) => {
-    arraySliced = inputOptionsFormParentArray.slice(n1);
-    arraySliced.forEach(d1);
-  };
-
   if (playIndex === 1) {
-    spliced(4, 1, changeToDisplayNone);
-    sliced(2, changeToDisplayBlock);
+    spliced(4, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(2, inputOptionsFormParentArray, changeToDisplayBlock);
   } else if (playIndex === 2) {
-    spliced(3, 1, changeToDisplayNone);
-    sliced(2, changeToDisplayBlock);
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(2, inputOptionsFormParentArray, changeToDisplayBlock);
   } else {
-    sliced(2, changeToDisplayNone);
+    sliced(2, inputOptionsFormParentArray, changeToDisplayNone);
   }
 };
+
+// Below is DRY Function with the Base Array Function still inside
+// const typeOfPlaySelectFunction = (playIndex) => {
+//   console.log("Type of Play Index: " + playIndex);
+//   const inputOptionsFormParent = document.querySelector(".playsForm");
+//   const inputOptionsFormChildNodes = inputOptionsFormParent.children;
+//   const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
+
+//   const changeToDisplayBlock = (e) => {
+//     e.style.display = "block";
+//   };
+
+//   const changeToDisplayNone = (e) => {
+//     e.style.display = "none";
+//   };
+
+//   const spliced = (n1, n2, d1) => {
+//     arraySpliced = inputOptionsFormParentArray.splice(n1, n2);
+//     arraySpliced.forEach(d1);
+//   };
+
+//   const sliced = (n1, d1) => {
+//     arraySliced = inputOptionsFormParentArray.slice(n1);
+//     arraySliced.forEach(d1);
+//   };
+
+//   if (playIndex === 1) {
+//     spliced(4, 1, changeToDisplayNone);
+//     sliced(2, changeToDisplayBlock);
+//   } else if (playIndex === 2) {
+//     spliced(3, 1, changeToDisplayNone);
+//     sliced(2, changeToDisplayBlock);
+//   } else {
+//     sliced(2, changeToDisplayNone);
+//   }
+// };
 
 // Below is Working semi-DRY
 // const typeOfPlaySelect = document.querySelector(".typeOfPlay");
@@ -283,6 +334,8 @@ const playFormEl = document.querySelector(".playsForm");
 playFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
   playFormSubmit();
+  playFormEl.reset();
+  typeOfPlaySelectFunction();
 });
 async function playFormSubmit() {
   const grabIdEl = document.querySelector("#formUniqueId");
@@ -291,23 +344,26 @@ async function playFormSubmit() {
   console.log("Play ID: " + randomIdGenerated);
 
   const formData = new FormData(playFormEl);
-  console.log(formData.get("player_one_number"));
+  console.log(formData.get("player_passer_number"));
+  console.log(formData.get("player_receiver_number"));
+  console.log(formData.get("player_rusher_number"));
+  console.log(formData.get("player_defense_number"));
+
   const formDataEntries = Object.fromEntries(formData);
   console.log(formDataEntries);
   try {
-    const res = await fetch("http://localhost:3500/plays/", {
+    const res = await fetch(API_URL_REQRES, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formDataEntries),
     });
-    const dataResponseData = await res.json();
-    console.log(dataResponseData);
     if (!res.ok) {
       console.log(dataResponseData.description);
       return;
     }
+    const dataResponseData = await res.json();
     console.log(dataResponseData);
   } catch (error) {
     console.log(error);
@@ -328,7 +384,7 @@ const qbStatsFunction = async () => {
         "Content-Type": "application/json",
       },
     });
-    const dataResponseData = (response = await res.json());
+    const dataResponseData = await res.json();
     console.log(dataResponseData);
 
     const response2 = await fetch("http://localhost:3500/plays/", {
@@ -337,7 +393,7 @@ const qbStatsFunction = async () => {
         "Content-Type": "application/json",
       },
     });
-    const dataResponseData2 = (response = await response2.json());
+    const dataResponseData2 = await response2.json();
     console.log(dataResponseData2);
 
     if (!res.ok) {

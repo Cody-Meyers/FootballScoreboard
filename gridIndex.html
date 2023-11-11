@@ -352,9 +352,12 @@
                     <option value="tackle">Tackle</option>
                     <option value="sack">QB Sack</option>
                     <option value="outOfBounds">Out of Bounds</option>
-                    <option value="intercepted">Intercepted</option>
                     <option value="fumble">Fumble</option>
                     <option value="flag">Flag</option>
+                    <option value="intercepted">Intercepted</option>
+                    <option value="interceptedPickSix">
+                      Intercepted (Pick 6)
+                    </option>
                     <option value="touchdown">Touchdown (6)</option>
                     <option value="extraPointKick">Extra Point Kick (1)</option>
                     <option value="extraPointTwoPoint">
@@ -370,7 +373,7 @@
                     type="number"
                     max="99"
                     min="1"
-                    name="tackled_by_number"
+                    name="player_defense_number"
                     id="tackledByNumber"
                     placeholder="Player #"
                   />
@@ -378,7 +381,7 @@
                 <input
                   type="submit"
                   value="Submit"
-                  class="playSubmit"
+                  class="playSubmit plays-form-display-none"
                   id="playSubmitId"
                 />
               </form>
