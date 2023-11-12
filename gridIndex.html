@@ -119,7 +119,7 @@
         </div>
       </div>
       <div class="box container-controls">
-        <h2 class="controlsTitle">Controls</h2>
+        <h2 class="controlsTitle">Scoreboard Controls</h2>
         <div class="controls-main">
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
@@ -266,6 +266,576 @@
             <div class="plays">
               <h2 class="playsFormTitle">Play Form</h2>
               <form class="playsForm" id="playsFormId">
+                <div class="playsFormStyle">
+                  <div class="formUniqueIdParent">
+                    <input type="hidden" name="id" id="formUniqueId" />
+                  </div>
+                  <div class="typeOfPlayParent">
+                    <select
+                      name="type_of_play"
+                      class="typeOfPlay"
+                      id="typeOfPlayId"
+                    >
+                      <option value="typeofplayvalue">Type of Play</option>
+                      <option value="pass">Pass</option>
+                      <option value="rush">Rush</option>
+                      <option value="kick">Kick</option>
+                      <option value="flag">Flag</option>
+                    </select>
+                  </div>
+                  <div class="playsAlwaysIncludeDiv">
+                    <div class="sideSelectOptions">
+                      <select name="side" id="sideSelect">
+                        <option value="offensiveside">
+                          Select Offense Team
+                        </option>
+                        <option value="visitor">Visitor</option>
+                        <option value="home">Home</option>
+                      </select>
+                    </div>
+                    <div class="yardLines">
+                      <select
+                        name="select_start_field_side"
+                        id="selectStartFieldSide"
+                      >
+                        <option value="visitorStartFieldSide">Visitor</option>
+                        <option value="homeStartFieldSide">Home</option>
+                      </select>
+                      <label for="yardLinesStartingNumber"
+                        >Starting Yard Line #</label
+                      >
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="yard_line_starting_number"
+                        id="yardLinesStartingNumber"
+                        placeholder="Starting Yard Line #"
+                      />
+                      <select
+                        name="select_end_field_side"
+                        id="selectEndFieldSide"
+                      >
+                        <option value="visitorEndFieldSide">Visitor</option>
+                        <option value="homeEndFieldSide">Home</option>
+                      </select>
+                      <label for="yardLinesEndingNumber"
+                        >Ending Yard Line #</label
+                      >
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="yard_line_ending_number"
+                        id="yardLinesEndingNumber"
+                        placeholder="Ending Yard Line #"
+                      />
+                      <label for="offensePlayerNumber"
+                        >Offense Passer/Rusher/Kicker #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_offense_number"
+                        id="offensePlayerNumber"
+                        placeholder="Player #"
+                      />
+                    </div>
+                  </div>
+                  <div class="passOptions">
+                    <div class="passAttemptInitial">
+                      <label for="passPlayDuringId">Pass Play:</label>
+                      <select name="pass_play_during" id="passPlayDuringId">
+                        <option value="qbSack">QB Sack</option>
+                        <option value="qbFumble">QB Fumble</option>
+                        <option value="passing">QB Pass Attempt</option>
+                      </select>
+                    </div>
+                    <div class="passAttemptResult">
+                      <label for="targetReceiverPlayer"
+                        >Target Receiver Player #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_receiver_number"
+                        id="targetReceiverPlayer"
+                        placeholder="Player #"
+                      />
+                      <label for="passPlayResultId"
+                        >Passing Attempt Results:</label
+                      >
+                      <select name="pass_play_result" id="passPlayResultId">
+                        <option value="passCaught">Caught</option>
+                        <option value="passDropped">Dropped</option>
+                        <option value="passBreakup">Broken Up</option>
+                        <option value="passIntercepted">Intercepted</option>
+                        <option value="passFlagIntentionalGrounding">
+                          Flag: Intentional Grounding
+                        </option>
+                      </select>
+                      <label for="happedYardLine">Occurred on Yard Line</label>
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="happened_on_yard_line"
+                        id="happedYardLine"
+                        placeholder="Yards Line #"
+                      />
+                      <label for="selectHappenFieldSide">on the</label>
+                      <select
+                        name="select_happen_field_side"
+                        id="selectHappenFieldSide"
+                      >
+                        <option value="visitorHappenFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeHappenFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                    </div>
+                    <div class="interception">
+                      <label for="interceptedSide">Intercepted by Side:</label>
+                      <select name="possessingSide" id="possessingSide">
+                        <option value="offensiveside">
+                          Select Intercepting Side
+                        </option>
+                        <option value="visitor">Visitor</option>
+                        <option value="home">Home</option>
+                      </select>
+                      <label for="interceptingPlayer"
+                        >Intercepting Player #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_intercepting_number"
+                        id="interceptingPlayer"
+                        placeholder="Player #"
+                      />
+                      <label for="interceptionYardLine"
+                        >Intercepted on Yard Line</label
+                      >
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="intercepted_on_yard_line"
+                        id="interceptionYardLine"
+                        placeholder="Yards Line #"
+                      />
+                      <label for="selectInterceptionFieldSide">on the</label>
+                      <select
+                        name="select_interception_field_side"
+                        id="selectInterceptionFieldSide"
+                      >
+                        <option value="visitorHappenFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeHappenFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="kickOptions">
+                    <div class="typeOfKickParent">
+                      <select
+                        name="type_of_kick"
+                        class="typeOfKick"
+                        id="typeOfKickId"
+                      >
+                        <option value="typeofkickvalue">Type of Kick</option>
+                        <option value="kickOff">Kick Off</option>
+                        <option value="punt">Punt</option>
+                        <option value="fieldGoal">Field Goal</option>
+                        <option value="extraPoint">Extra Point</option>
+                      </select>
+                    </div>
+                    <div class="kickResult">
+                      <label for="kickRecoveryPlayer"
+                        >Kick Recovery Player #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_recovery_number"
+                        id="kickRecoveryPlayer"
+                        placeholder="Player #"
+                      />
+                      <label for="kickRecoveryResultId">Kick Results:</label>
+                      <select
+                        name="kick_recovery_result"
+                        id="kickRecoveryResultId"
+                      >
+                        <option value="kickFairCaught">Fair Catch</option>
+                        <option value="muffedPunt">Muffed Punt</option>
+                        <option value="returnCatch">
+                          Receiving Team Caught (Returned)
+                        </option>
+                        <option value="returnFumble">
+                          Receiving Team Caught (Fumbled)
+                        </option>
+                        <option value="returnFumble">
+                          Kicking Team Caught/Touched First
+                        </option>
+                        <option value="kickOutOfBounds">Out of Bounds</option>
+                        <option value="touchback">Touchback</option>
+                        <option value="deadBacll">
+                          Dead Ball (Ball Stops Untouched Inbounds)
+                        </option>
+                      </select>
+                      <label for="happedYardLine">Occurred on Yard Line</label>
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="happened_on_yard_line"
+                        id="happedYardLine"
+                        placeholder="Yards Line #"
+                      />
+                      <label for="selectHappenFieldSide">on the</label>
+                      <select
+                        name="select_happen_field_side"
+                        id="selectHappenFieldSide"
+                      >
+                        <option value="visitorHappenFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeHappenFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                      <label for="possessingSide">Possessed by:</label>
+                      <select name="possessingSide" id="possessingSide">
+                        <option value="offensiveside">
+                          Select Possessing Side
+                        </option>
+                        <option value="visitor">Visitor</option>
+                        <option value="home">Home</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="fumbleOptions">
+                    <label for="fumbledId">Fumbled?</label>
+                    <select name="select_fumble_answer" id="fumbledId">
+                      <option value="fumbleNo">No Fumble</option>
+                      <option value="fumbleYes">Yes Fumble</option>
+                    </select>
+                    <label for="recoveryTeamSideId">Recovered by:</label>
+                    <select
+                      name="select_recovery_team_side"
+                      id="recoveryTeamSideId"
+                    >
+                      <option value="visitorRecoverySide">Visitor</option>
+                      <option value="homeRecoverySide">Home</option>
+                    </select>
+                    <label for="fumbleRecoveryPlayerId"
+                      >Fumble Recovery Player #</label
+                    >
+                    <input
+                      type="number"
+                      max="99"
+                      min="1"
+                      name="player_fumble_recovery_number"
+                      id="fumbleRecoveryPlayerId"
+                      placeholder="Player #"
+                    />
+                    <label for="recoveredYardLineId"
+                      >Recovered on Yard Line</label
+                    >
+                    <input
+                      type="number"
+                      max="100"
+                      min="0"
+                      name="recovered_on_yard_line"
+                      id="recoveredYardLineId"
+                      placeholder="Yards Line #"
+                    />
+                    <label for="selectRecoveryFieldSide">on the</label>
+                    <select
+                      name="select_recovery_field_side"
+                      id="selectRecoveryFieldSide"
+                    >
+                      <option value="visitorRecoveryFieldSide">
+                        Visitor Field Side
+                      </option>
+                      <option value="homeRecoveryFieldSide">
+                        Home Field Side
+                      </option>
+                    </select>
+                  </div>
+                  <div class="flag">
+                    <label for="flagId">Flag?</label>
+                    <select name="select_flag_answer" id="flagId">
+                      <option value="flagNo">No Flag</option>
+                      <option value="flagYes">Yes Flag</option>
+                    </select>
+                    <label for="flagNameId">Flag Name:</label>
+                    <select name="select_flag_name" id="flagNameId">
+                      <option value="flagChopBlock">Chop Block</option>
+                      <option value="flagClipping">Clipping</option>
+                      <option value="flagDefensiveHolding">
+                        Defensive Holding
+                      </option>
+                      <option value="flagDefensiveOffside">
+                        Defensive Offside
+                      </option>
+                      <option value="flagDefensivePassInterference">
+                        Defensive Pass Interference
+                      </option>
+                      <option value="flagDelayOfGame">Delay of Game</option>
+                      <option value="flagDelayOfKickoff">
+                        Delay of Kickoff
+                      </option>
+                      <option value="flagDisqualification">
+                        Disqualification
+                      </option>
+                      <option value="flagEncroachment">Encroachment</option>
+                      <option value="flagFaceMask">Face Mask</option>
+                      <option value="flagFairCatchInterference">
+                        Fair Catch Interference
+                      </option>
+                      <option value="flagFalseStart">False Start</option>
+                      <option value="flagHorseCollarTackle">
+                        Horse Collar Tackle
+                      </option>
+                      <option value="flagIllegalBat">Illegal Bat</option>
+                      <option value="flagIllegalBlindsideBlock">
+                        Illegal Blindside Block
+                      </option>
+                      <option value="flagIllegalBlockAboveTheWaist">
+                        Illegal Block Above The Waist
+                      </option>
+                      <option value="flagIllegalContact">
+                        Illegal Contact
+                      </option>
+                      <option value="flagIllegalCrackback">
+                        Illegal Crackback
+                      </option>
+                      <option value="flagIllegalCut">Illegal Cut</option>
+                      <option value="flagIllegalDoubleTeamBlock">
+                        Illegal Double Team Block
+                      </option>
+                      <option value="flagIllegalFormation">
+                        Illegal Formation
+                      </option>
+                      <option value="flagIllegalForwardHandoff">
+                        Illegal Forward Handoff
+                      </option>
+                      <option value="flagIllegalForwardPass">
+                        Illegal Forward Pass
+                      </option>
+                      <option value="flagIllegalKickKickingLooseBall">
+                        Illegal Kick/KickingLoose Ball
+                      </option>
+                      <option value="flagIllegalMotion">Illegal Motion</option>
+                      <option value="flagIllegalPeelBack">
+                        Illegal Peel Back
+                      </option>
+                      <option value="flagIllegalPuntFieldGoal">
+                        Illegal Punt/Field Goal
+                      </option>
+                      <option value="flagIllegalShift">Illegal Shift</option>
+                      <option value="flagIllegalSubstitution">
+                        Illegal Substitution
+                      </option>
+                      <option value="flagIllegalTouchKick">
+                        Illegal Touch - Kick
+                      </option>
+                      <option value="flagIllegalTouchPass">
+                        Illegal Touch - Pass
+                      </option>
+                      <option value="flagIllegalUseOfHands">
+                        Illegal Use of Hands
+                      </option>
+                      <option value="flagIllegalWedge">Illegal Wedge</option>
+                      <option value="flagIneligibleDownfieldKick">
+                        Ineligible Downfield Kick
+                      </option>
+                      <option value="flagIneligibleDownfieldPass">
+                        Ineligible Downfield Pass
+                      </option>
+                      <option value="flagIntentionalGrounding">
+                        Intentional Grounding
+                      </option>
+                      <option value="flagInvalidFairCatchSignal">
+                        Invalid Fair Catch Signal
+                      </option>
+                      <option value="flagKickoffOutOfBounds">
+                        Kickoff Out of Bounds
+                      </option>
+                      <option value="flagLeaping">Leaping</option>
+                      <option value="flagLeverage">Leverage</option>
+                      <option value="flagLowBlock">Low Block</option>
+                      <option value="flagNeutralZoneInfraction">
+                        Neutral Zone Infraction
+                      </option>
+                      <option value="flagOffensiveHolding">
+                        Offensive Holding
+                      </option>
+                      <option value="flagOffensiveOffside">
+                        Offensive Offside
+                      </option>
+                      <option value="flagOffensivePassInterference">
+                        Offensive Pass Interference
+                      </option>
+                      <option value="flagOffensiveTooManyMenOnField">
+                        Offensive Too Many Men On Field
+                      </option>
+                      <option value="flagOffsideOnFreeKick">
+                        Offside on Free Kick
+                      </option>
+                      <option value="flagPlayerOutOfBoundsOnKick">
+                        Player Out of Bounds on Kick
+                      </option>
+                      <option value="flagRoughingTheKicker">
+                        Roughing the Kicker
+                      </option>
+                      <option value="flagRoughingThePasser">
+                        Roughing the Passer
+                      </option>
+                      <option value="flagRunningIntoTheKicker">
+                        Running Into the Kicker
+                      </option>
+                      <option value="flagShorFreeKick">Short Free Kick</option>
+                      <option value="flagTaunting">Taunting</option>
+                      <option value="flagTripping">Tripping</option>
+                      <option value="flagUnnecessaryRoughness">
+                        Unnecessary Roughness
+                      </option>
+                      <option value="flagUnsportsmanlikeConduct">
+                        Unsportsmanlike Conduct
+                      </option>
+                      <option value="flagUseOfHelmet">Use of Helmet</option>
+                    </select>
+                    <label for="flagAgainstTeamSideId"
+                      >Flag Against Team:</label
+                    >
+                    <select
+                      name="select_flag_against_team_side"
+                      id="flagAgainstTeamSideId"
+                    >
+                      <option value="visitorFlagAgainstSide">Visitor</option>
+                      <option value="homeFlagAgainstSide">Home</option>
+                    </select>
+                    <label for="flagAgainstPlayerId"
+                      >Flag Against Player #</label
+                    >
+                    <input
+                      type="number"
+                      max="99"
+                      min="1"
+                      name="player_flag_against_number"
+                      id="flagAgainstPlayerId"
+                      placeholder="Player #"
+                    />
+                    <label for="flagChoiceId">Accept/Decline Flag:</label>
+                    <select name="flag_accept" id="flagChoiceId">
+                      <option value="flagAccept">Accepted</option>
+                      <option value="flagDecline">Declined</option>
+                    </select>
+                    <label for="flaggedOnYardLineId"
+                      >Flagged on Yard Line</label
+                    >
+                    <input
+                      type="number"
+                      max="100"
+                      min="0"
+                      name="flagged_on_yard_line"
+                      id="flaggedOnYardLineId"
+                      placeholder="Yards Line #"
+                    />
+                    <label for="selectFlaggedFieldSide">on the</label>
+                    <select
+                      name="select_flagged_field_side"
+                      id="selectFieldSide"
+                    >
+                      <option value="visitorFlaggedFieldSide">
+                        Visitor Field Side
+                      </option>
+                      <option value="homeFlaggedFieldSide">
+                        Home Field Side
+                      </option>
+                    </select>
+                    <label for="flagYardsAmountId">Flagged for yards:</label>
+                    <input
+                      type="number"
+                      max="100"
+                      min="0"
+                      name="flagged_yards_amount"
+                      id="flagYardsAmountId"
+                      placeholder="Yards Line #"
+                    />
+                    <label for="flagDownChangeId">Down Change?:</label>
+                    <select name="flag_down_change" id="flagDownChangeId">
+                      <option value="flagReplayDown">Replay Down</option>
+                      <option value="flagAutomaticFirstDown">
+                        Automatic First Down
+                      </option>
+                    </select>
+                  </div>
+                  <div class="playEndOptions">
+                    <label for="endOfPlayId">End of Play:</label>
+                    <select name="end_of_play" id="endOfPlayId">
+                      <option value="endPlayOutOfBounds">Out of Bounds</option>
+                      <option value="endPlayTackled">Tackled</option>
+                      <option value="endPlayScoredPoints">Scored Points</option>
+                    </select>
+                    <label for="tackledBySideId">Tackled by Team:</label>
+                    <select name="select_tackle_team_side" id="tackledBySideId">
+                      <option value="visitorTackledBySide">Visitor</option>
+                      <option value="homeTackledBySide">Home</option>
+                    </select>
+                    <label for="tackledByPlayerId">Tackled by Player #</label>
+                    <input
+                      type="number"
+                      max="99"
+                      min="1"
+                      name="player_tackled_by_number"
+                      id="tackledByPlayerId"
+                      placeholder="Player #"
+                    />
+                    <label for="scoredSideId">Scoring Team:</label>
+                    <select name="select_scoring_team_side" id="scoredSideId">
+                      <option value="visitorScoringSide">Visitor</option>
+                      <option value="homeScoringSide">Home</option>
+                    </select>
+                    <label for="scoreSelectId">Select Scoring Play:</label>
+                    <select name="select_score" id="scoreSelectId">
+                      <option value="scoreSelectScore">Select Score</option>
+                      <option value="scoreTouchdown">Touchdown (6)</option>
+                      <option value="scoreExtraOnePoint">
+                        Extra Point Kick (1)
+                      </option>
+                      <option value="scoreExtraTwoPoint">
+                        Extra 2-Point Success (2)
+                      </option>
+                      <option value="scoreFieldGoal">Field Goal (3)</option>
+                      <option value="scoreSafety">Safety (2)</option>
+                    </select>
+                  </div>
+                  <input
+                    type="submit"
+                    value="Submit"
+                    class="playSubmit"
+                    id="playSubmitId"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- below is the Main branch's play form -->
+          <!-- <div class="playsParent playsParentStyle">
+            <div class="plays">
+              <h2 class="playsFormTitle">Play Form</h2>
+              <form class="playsForm" id="playsFormId">
                 <input type="hidden" name="id" id="formUniqueId" />
                 <select
                   name="type_of_play"
@@ -386,7 +956,7 @@
                 />
               </form>
             </div>
-          </div>
+          </div> -->
           <div class="tickerParentControls tickerParentControlsStyle">
             <h2 class="tickerTitle">Ticker Controls</h2>
             <div class="vTickerControls vTickerControlsStyle">
