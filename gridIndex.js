@@ -159,6 +159,17 @@ function showScore(data) {
 }
 
 // Array Manipulation Base Functions
+
+// Create Array to Index Function - create the initial Array to Manipulate
+const createArrayIndex = (parentClassOfElementsToArray) => {
+  const inputOptionsFormParent = document.querySelector(
+    parentClassOfElementsToArray
+  );
+  const inputOptionsFormChildNodes = inputOptionsFormParent.children;
+  const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
+  return inputOptionsFormParentArray;
+};
+
 // -Style Display Functions
 const changeToDisplayBlock = (thisArrayValue) => {
   thisArrayValue.style.display = "block";
@@ -189,141 +200,201 @@ const sliced = (
   arraySliced.forEach(styleDisplayFunctionChoice);
 };
 
+// ---Select Option Value Update Function
+const selectOptionValueUpdate = (selectElementClassName, thisNumberIndex) => {
+  const changeThisEl = document.querySelector(selectElementClassName);
+  changeThisEl.selectedIndex = thisNumberIndex;
+};
+
 // Array Fields to Manipulate
 
-// Play Form Input Options Display Change based on Selection
+// -Play Form Input Options Display Change based on Selection
 const typeOfPlaySelect = document.querySelector(".typeOfPlay");
 typeOfPlaySelect.addEventListener("change", () => {
   const playIndex = typeOfPlaySelect.selectedIndex;
   typeOfPlaySelectFunction(playIndex);
 });
-
 const typeOfPlaySelectFunction = (playIndex) => {
   console.log("Type of Play Index: " + playIndex);
-  const inputOptionsFormParent = document.querySelector(".playsForm");
-  const inputOptionsFormChildNodes = inputOptionsFormParent.children;
-  const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
-
+  inputOptionsFormParentArray = createArrayIndex(".playsForm");
+  inputOptionsFormParentArray2 = createArrayIndex(".yardLines");
   if (playIndex === 1) {
     spliced(4, 1, inputOptionsFormParentArray, changeToDisplayNone);
-    sliced(2, inputOptionsFormParentArray, changeToDisplayBlock);
+    sliced(3, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
   } else if (playIndex === 2) {
+    spliced(3, 2, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(3, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (playIndex === 3) {
     spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
-    sliced(2, inputOptionsFormParentArray, changeToDisplayBlock);
+    sliced(3, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (playIndex === 4) {
+    spliced(3, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    spliced(4, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(3, inputOptionsFormParentArray, changeToDisplayBlock);
+    spliced(2, 1, inputOptionsFormParentArray2, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray2, changeToDisplayBlock);
+    flagSelectFunction(1);
+    selectOptionValueUpdate(".flagChoice", 1);
   } else {
-    sliced(2, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(3, inputOptionsFormParentArray, changeToDisplayNone);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
   }
 };
 
-// Below is DRY Function with the Base Array Function still inside
-// const typeOfPlaySelectFunction = (playIndex) => {
-//   console.log("Type of Play Index: " + playIndex);
-//   const inputOptionsFormParent = document.querySelector(".playsForm");
-//   const inputOptionsFormChildNodes = inputOptionsFormParent.children;
-//   const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
+// -Play Form Flag Input Options Display Change based on Selection
+const flagSelect = document.querySelector(".flagChoice");
+flagSelect.addEventListener("change", () => {
+  const flagIndex = flagSelect.selectedIndex;
+  flagSelectFunction(flagIndex);
+});
+const flagSelectFunction = (flagIndex) => {
+  console.log("Type of Flag Index: " + flagIndex);
+  inputOptionsFormParentArray = createArrayIndex(".flag");
+  if (flagIndex === 1) {
+    sliced(1, inputOptionsFormParentArray, changeToDisplayBlock);
+  } else {
+    sliced(1, inputOptionsFormParentArray, changeToDisplayNone);
+  }
+};
 
-//   const changeToDisplayBlock = (e) => {
-//     e.style.display = "block";
-//   };
+// -Play Form Fumble Input Options Display Change based on Selection
+const fumbleSelect = document.querySelector(".fumbleChoice");
+fumbleSelect.addEventListener("change", () => {
+  const fumbleIndex = fumbleSelect.selectedIndex;
+  fumbleSelectFunction(fumbleIndex);
+});
+const fumbleSelectFunction = (fumbleIndex) => {
+  console.log("Type of Fumble Index: " + fumbleIndex);
+  inputOptionsFormParentArray = createArrayIndex(".fumbleOptions");
+  if (fumbleIndex === 1) {
+    sliced(1, inputOptionsFormParentArray, changeToDisplayBlock);
+  } else {
+    sliced(1, inputOptionsFormParentArray, changeToDisplayNone);
+  }
+};
 
-//   const changeToDisplayNone = (e) => {
-//     e.style.display = "none";
-//   };
+// -Play Form Pass Play Input Options Display Change based on Selection
+const passPlaySelect = document.querySelector(".classPassPlayDuring");
+passPlaySelect.addEventListener("change", () => {
+  const passPlayIndex = passPlaySelect.selectedIndex;
+  passPlayFunction(passPlayIndex);
+});
+const passPlayFunction = (passPlayIndex) => {
+  console.log("Pass Play Index: " + passPlayIndex);
+  inputOptionsFormParentArray = createArrayIndex(".passOptions");
+  if (passPlayIndex === 1) {
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    fumbleSelectFunction(0);
+    selectOptionValueUpdate(".fumbleChoice", 0);
+  } else if (passPlayIndex === 2) {
+    spliced(1, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    fumbleSelectFunction(0);
+    selectOptionValueUpdate(".fumbleChoice", 0);
+  } else if (passPlayIndex === 3) {
+    spliced(1, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    fumbleSelectFunction(1);
+    selectOptionValueUpdate(".fumbleChoice", 1);
+  } else {
+    spliced(1, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    fumbleSelectFunction(0);
+    selectOptionValueUpdate(".fumbleChoice", 0);
+  }
+};
 
-//   const spliced = (n1, n2, d1) => {
-//     arraySpliced = inputOptionsFormParentArray.splice(n1, n2);
-//     arraySpliced.forEach(d1);
-//   };
+// -Play Form Pass Play Result Input Options Display Change based on Selection
+const passPlayResultSelect = document.querySelector(".passPlayResult");
+passPlayResultSelect.addEventListener("change", () => {
+  const passPlayResultIndex = passPlayResultSelect.selectedIndex;
+  passPlayResultFunction(passPlayResultIndex);
+});
+const passPlayResultFunction = (passPlayResultIndex) => {
+  console.log("Pass Play Results Index: " + passPlayResultIndex);
+  inputOptionsFormParentArray = createArrayIndex(".passOptions");
+  if (passPlayResultIndex === 1) {
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (passPlayResultIndex === 2) {
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (passPlayResultIndex === 3) {
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (passPlayResultIndex === 4) {
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  } else if (passPlayResultIndex === 5) {
+    spliced(2, 2, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(1);
+    selectOptionValueUpdate(".flagChoice", 1);
+  } else {
+    spliced(2, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    flagSelectFunction(0);
+    selectOptionValueUpdate(".flagChoice", 0);
+  }
+};
 
-//   const sliced = (n1, d1) => {
-//     arraySliced = inputOptionsFormParentArray.slice(n1);
-//     arraySliced.forEach(d1);
-//   };
+// -Play Form End of Play Input Options Display Change based on Selection
+const endPlaySelect = document.querySelector(".endOfPlayChoice");
+endPlaySelect.addEventListener("change", () => {
+  const endPlayIndex = endPlaySelect.selectedIndex;
+  endPlayFunction(endPlayIndex);
+});
+const endPlayFunction = (endPlayIndex) => {
+  console.log("End of Play Index: " + endPlayIndex);
+  inputOptionsFormParentArray = createArrayIndex(".playEndOptions");
+  const endingYardsNumber = document.getElementById("yardLinesEndingNumber");
+  if (endPlayIndex === 1) {
+    spliced(4, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    endingYardsNumber.value = "";
+  } else if (endPlayIndex === 2) {
+    spliced(2, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    spliced(3, 1, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    endingYardsNumber.value = "";
+  } else if (endPlayIndex === 3) {
+    spliced(2, 2, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    endingYardsNumber.value = 0;
+  } else {
+    spliced(2, 3, inputOptionsFormParentArray, changeToDisplayNone);
+    sliced(0, inputOptionsFormParentArray, changeToDisplayBlock);
+    endingYardsNumber.value = "";
+  }
+};
 
-//   if (playIndex === 1) {
-//     spliced(4, 1, changeToDisplayNone);
-//     sliced(2, changeToDisplayBlock);
-//   } else if (playIndex === 2) {
-//     spliced(3, 1, changeToDisplayNone);
-//     sliced(2, changeToDisplayBlock);
-//   } else {
-//     sliced(2, changeToDisplayNone);
-//   }
-// };
+// Play Form Reset Function
+const playFormResetButtonEl = document.querySelector(".resetPlayFormButton");
+const playFormResetButtonFunction = playFormResetButtonEl.addEventListener(
+  "click",
+  () => {
+    const playFormToResetEl = document.querySelector(".playsForm");
 
-// Below is Working semi-DRY
-// const typeOfPlaySelect = document.querySelector(".typeOfPlay");
-// typeOfPlaySelect.addEventListener("change", () => {
-//   const playIndex = typeOfPlaySelect.selectedIndex;
-//   typeOfPlaySelectFunction(playIndex);
-// });
-
-// const typeOfPlaySelectFunction = (playIndex) => {
-//   console.log("Type of Play Index: " + playIndex);
-//   const inputOptionsFormParent = document.querySelector(".playsForm");
-//   const inputOptionsFormChildNodes = inputOptionsFormParent.children;
-//   const inputOptionsFormParentArray = [...inputOptionsFormChildNodes];
-
-//   const changeToDisplayBlock = (e) => {
-//     e.style.display = "block";
-//   };
-//   const changeToDisplayNone = (e) => {
-//     e.style.display = "none";
-//   };
-
-//   if (playIndex === 1) {
-//     const inputOptionsFormParrentArraySpliced =
-//       inputOptionsFormParentArray.splice(4, 1);
-//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
-//     const inputOptionsFormParrentArraySplicedSliced =
-//       inputOptionsFormParentArray.slice(2);
-//     inputOptionsFormParrentArraySplicedSliced.forEach(changeToDisplayBlock);
-//   } else if (playIndex === 2) {
-//     const inputOptionsFormParrentArraySpliced =
-//       inputOptionsFormParentArray.splice(3, 1);
-//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
-//     const inputOptionsFormParrentArraySplicedSliced =
-//       inputOptionsFormParentArray.slice(2);
-//     inputOptionsFormParrentArraySplicedSliced.forEach(changeToDisplayBlock);
-//   } else {
-//     const inputOptionsFormParrentArraySpliced =
-//       inputOptionsFormParentArray.slice(2);
-//     inputOptionsFormParrentArraySpliced.forEach(changeToDisplayNone);
-//   }
-// };
-
-// Below is Original Function
-// const typeOfPlaySelectFunction = (playIndex) => {
-//   console.log("Type of Play Index: " + playIndex);
-//   const inputSideOptions = document.querySelector(".sideSelectOptions");
-//   const inputPassOptions = document.querySelector(".passOptions");
-//   const inputRushOptions = document.querySelector(".rushOptions");
-//   const inputYardsOptions = document.querySelector(".yardsOptions");
-//   const inputResultOptions = document.querySelector(".playResultOptions");
-//   const inputDefenseOptions = document.querySelector(".defenseOptions");
-//   if (playIndex === 1) {
-//     inputSideOptions.style.display = "block";
-//     inputPassOptions.style.display = "block";
-//     inputRushOptions.style.display = "none";
-//     inputYardsOptions.style.display = "block";
-//     inputResultOptions.style.display = "block";
-//     inputDefenseOptions.style.display = "block";
-//   } else if (playIndex === 2) {
-//     inputSideOptions.style.display = "block";
-//     inputPassOptions.style.display = "none";
-//     inputRushOptions.style.display = "block";
-//     inputYardsOptions.style.display = "block";
-//     inputResultOptions.style.display = "block";
-//     inputDefenseOptions.style.display = "block";
-//   } else {
-//     inputSideOptions.style.display = "none";
-//     inputPassOptions.style.display = "none";
-//     inputRushOptions.style.display = "none";
-//     inputYardsOptions.style.display = "none";
-//     inputResultOptions.style.display = "none";
-//     inputDefenseOptions.style.display = "none";
-//   }
-// };
+    typeOfPlaySelectFunction(0);
+    playFormToResetEl.reset();
+    console.log("Successfully Reset Play Form");
+  }
+);
 
 // API Options
 const API_URL_JSONSERVER = "http://localhost:3500/";
@@ -336,6 +407,7 @@ playFormEl.addEventListener("submit", (event) => {
   playFormSubmit();
   playFormEl.reset();
   typeOfPlaySelectFunction();
+  console.log("Successfully Submitted Play Form");
 });
 async function playFormSubmit() {
   const grabIdEl = document.querySelector("#formUniqueId");
@@ -456,66 +528,3 @@ const qbStatsFunction = async () => {
     console.log(error);
   }
 };
-// const qbStatsFunction = async () => {
-//   try {
-//     const res = await fetch("http://localhost:3500/cowboysRoster/", {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-
-//     const dataResponseData = (response = await res.json());
-//     console.log(dataResponseData);
-
-//     if (!res.ok) {
-//       console.log(dataResponseData.description);
-//       return;
-//     }
-
-//     // Filter API Visitor Team Response Data by QB Position
-//     const filteredQbObjects = dataResponseData.filter(
-//       (object) => object.position === "QB"
-//     );
-//     console.log(filteredQbObjects);
-
-//     // Visitor Ticker QB Number Insertion
-//     const vTickerNumberEl = document.querySelector(".vTickerNumber");
-//     const qbNumber = filteredQbObjects[0].number;
-//     console.log(qbNumber);
-//     vTickerNumberEl.innerText = qbNumber;
-
-//     // Visitor Ticker QB Position Insertion
-//     const vTickerLeftEl = document.querySelector(".vTickerLeft");
-//     const qbPosition = filteredQbObjects[0].position;
-//     vTickerLeftEl.innerText = qbPosition;
-
-//     // Visitor Ticker QB Name Insertion
-//     const vTickerCenterEl = document.querySelector(".vTickerCenter");
-//     const qbFirstName = filteredQbObjects[0].player_first_name;
-//     const qbLastName = filteredQbObjects[0].player_last_name;
-//     vTickerCenterEl.innerText = qbFirstName + " " + qbLastName;
-
-//     tickerTransformation(
-//       ".header-ticker-visitor",
-//       ".header-ticker-center",
-//       ".header-ticker-home"
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// Unused Info below vvv
-// async function testInfo() {
-//   const formData = new FormData(playFormEl);
-//   console.log(formData);
-//   const formDataEntries = Object.fromEntries(formData);
-//   console.log(formDataEntries);
-//   const res = JSON.stringify(formDataEntries);
-//   console.log(res);
-//   const dataResponseData = res.parse;
-//   console.log(dataResponseData);
-// }
-
-// testInfo();

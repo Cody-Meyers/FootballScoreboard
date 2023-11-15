@@ -500,3 +500,13 @@ table {
 .plays-form-display-none {
   display: none;
 }
+
+.plays {
+  position: relative;
+}
+
+.resetPlayFormButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
