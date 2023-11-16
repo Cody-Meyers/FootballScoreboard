@@ -47,12 +47,12 @@
             <img src="./images/seahawks.png" alt="Seahawks Logo" />
           </div>
           <div class="div14 aside-style aside-visitor transform-hidden">
-            <p id="visitor-stat1">v stat1 additional info here</p>
-            <p class="visitor-stat2">v stat2</p>
+            <div id="visitor-stat1">v stat1</div>
+            <div class="visitor-stat2">v stat2</div>
           </div>
           <div class="div13 aside-style aside-home transform-hidden">
-            <p class="home-stat1">h stat1</p>
-            <p class="home-stat2">h stat2</p>
+            <div class="home-stat1">h stat1</div>
+            <div class="home-stat2">h stat2</div>
           </div>
           <div
             class="div4 score-style child-div-present-check visitor-score-coin visitor-coin-points"
@@ -124,114 +124,114 @@
           <div class="controls-static-components"></div>
           <div class="controls-indicators"></div>
           <div class="controls-score">
-            <button class="currentScore" onclick="getScore()">
-              Current Score
-            </button>
-            <form class="setVisitorScoreFormClass" id="setVisitorScoreForm">
-              <input
-                type="number"
-                id="setVisitorScoreId"
-                class="setVisitorScoreInputClass"
-                placeholder="Enter Visitor Score"
-              />
-              <input
-                type="button"
-                onclick="setScore('.setVisitorScoreFormClass', '.setVisitorScoreInputClass', '.visitor-score-points')"
-                value="Set Visitor Score"
-              />
-            </form>
-            <button
-              id="visitor-score-reset"
-              onclick="resetScore('.visitor-score-points')"
-            >
-              Reset Visitor Score
-            </button>
-            <button
-              id="button-score-coin-visitor-transform"
-              onclick="scoringFunction(6, '.visitor-coin-points', '.visitor-score-points')"
-            >
-              Visitor Touchdown (6)
-            </button>
-            <button
-              id="button-score-coin-visitor-transform"
-              onclick="scoringFunction(1, '.visitor-coin-points', '.visitor-score-points')"
-            >
-              Visitor Extra Point Kick (1)
-            </button>
-            <button
-              id="button-score-coin-visitor-transform"
-              onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
-            >
-              Visitor Extra 2-Point Success (2)
-            </button>
-            <button
-              id="button-score-coin-visitor-transform"
-              onclick="scoringFunction(3, '.visitor-coin-points', '.visitor-score-points')"
-            >
-              Visitor Field Goal (3)
-            </button>
-            <button
-              id="button-score-coin-visitor-transform"
-              onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
-            >
-              Visitor Safety (2)
-            </button>
-
-            <form class="setHomeScoreFormClass" id="setHomeScoreForm">
-              <input
-                type="number"
-                id="setHomeScoreId"
-                class="setHomeScoreInputClass"
-                placeholder="Enter Home Score"
-              />
-              <input
-                type="button"
-                onclick="setScore('.setHomeScoreFormClass', '.setHomeScoreInputClass', '.home-score-points')"
-                value="Set Home Score"
-              />
-            </form>
-            <button
-              id="home-score-reset"
-              onclick="resetScore('.home-score-points')"
-            >
-              Reset Home Score
-            </button>
-            <button
-              id="home-score-reset"
-              onclick="resetScore('.home-score-points')"
-            >
-              Reset Home Score
-            </button>
-            <button
-              id="button-score-coin-home-transform"
-              onclick="scoringFunction(6, '.home-coin-points', '.home-score-points')"
-            >
-              Home Touchdown (6)
-            </button>
-            <button
-              id="button-score-coin-home-transform"
-              onclick="scoringFunction(1, '.home-coin-points', '.home-score-points')"
-            >
-              Home Extra Point Kick (1)
-            </button>
-            <button
-              id="button-score-coin-home-transform"
-              onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
-            >
-              Home Extra 2-Point Success (2)
-            </button>
-            <button
-              id="button-score-coin-home-transform"
-              onclick="scoringFunction(3, '.home-coin-points', '.home-score-points')"
-            >
-              Home Field Goal (3)
-            </button>
-            <button
-              id="button-score-coin-home-transform"
-              onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
-            >
-              Home Safety (2)
-            </button>
+            <div class="controls-score-both controls-score-visitor">
+              <!-- <button class="currentScore" onclick="getScore()">
+                Current Score
+              </button> -->
+              <button
+                id="button-score-coin-visitor-transform"
+                onclick="scoringFunction(6, '.visitor-coin-points', '.visitor-score-points')"
+              >
+                Visitor Touchdown (6)
+              </button>
+              <button
+                id="button-score-coin-visitor-transform"
+                onclick="scoringFunction(1, '.visitor-coin-points', '.visitor-score-points')"
+              >
+                Visitor Extra Point Kick (1)
+              </button>
+              <button
+                id="button-score-coin-visitor-transform"
+                onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
+              >
+                Visitor Extra 2-Point Success (2)
+              </button>
+              <button
+                id="button-score-coin-visitor-transform"
+                onclick="scoringFunction(3, '.visitor-coin-points', '.visitor-score-points')"
+              >
+                Visitor Field Goal (3)
+              </button>
+              <button
+                id="button-score-coin-visitor-transform"
+                onclick="scoringFunction(2, '.visitor-coin-points', '.visitor-score-points')"
+              >
+                Visitor Safety (2)
+              </button>
+              <div class="settingVisitorScoreForm">
+                <form class="setVisitorScoreFormClass" id="setVisitorScoreForm">
+                  <input
+                    type="number"
+                    id="setVisitorScoreId"
+                    class="setVisitorScoreInputClass setScoreInput"
+                    placeholder="Enter Visitor Score"
+                  />
+                  <button
+                    type="submit"
+                    onclick="setScore('.setVisitorScoreFormClass', '.setVisitorScoreInputClass', '.visitor-score-points')"
+                  >
+                    Set Visitor Score
+                  </button>
+                </form>
+              </div>
+              <button
+                id="visitor-score-reset"
+                onclick="resetScore('.visitor-score-points')"
+              >
+                Reset Visitor Score
+              </button>
+            </div>
+            <div class="controls-score-both controls-score-home">
+              <button
+                id="button-score-coin-home-transform"
+                onclick="scoringFunction(6, '.home-coin-points', '.home-score-points')"
+              >
+                Home Touchdown (6)
+              </button>
+              <button
+                id="button-score-coin-home-transform"
+                onclick="scoringFunction(1, '.home-coin-points', '.home-score-points')"
+              >
+                Home Extra Point Kick (1)
+              </button>
+              <button
+                id="button-score-coin-home-transform"
+                onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
+              >
+                Home Extra 2-Point Success (2)
+              </button>
+              <button
+                id="button-score-coin-home-transform"
+                onclick="scoringFunction(3, '.home-coin-points', '.home-score-points')"
+              >
+                Home Field Goal (3)
+              </button>
+              <button
+                id="button-score-coin-home-transform"
+                onclick="scoringFunction(2, '.home-coin-points', '.home-score-points')"
+              >
+                Home Safety (2)
+              </button>
+              <div class="settingHomeScoreForm">
+                <form class="setHomeScoreFormClass" id="setHomeScoreForm">
+                  <input
+                    type="number"
+                    id="setHomeScoreId"
+                    class="setHomeScoreInputClass setScoreInput"
+                    placeholder="Enter Home Score"
+                  />
+                  <button
+                  type="submit" onclick="setScore('.setHomeScoreFormClass', '.setHomeScoreInputClass', '.home-score-points')">Set Home Score</button>
+                  </button>
+                </form>
+              </div>
+              <button
+                id="home-score-reset"
+                onclick="resetScore('.home-score-points')"
+              >
+                Reset Home Score
+              </button>
+            </div>
           </div>
           <div class="controls-ticker-main">
             <button
@@ -270,6 +270,7 @@
                   <input type="hidden" name="id" id="formUniqueId" />
                 </div>
                 <div class="typeOfPlayParent">
+                  <label for="typeOfPlayId">Select the Type of Play</label>
                   <select
                     name="type_of_play"
                     class="typeOfPlay"
@@ -284,6 +285,7 @@
                 </div>
                 <div class="playsAlwaysIncludeDiv">
                   <div class="sideSelectOptions">
+                    <label for="sideSelect">Select Offense Team</label>
                     <select name="side" id="sideSelect">
                       <option value="offensiveside">Select Offense Team</option>
                       <option value="visitor">Visitor Team</option>
@@ -322,7 +324,7 @@
                     </div>
                     <div class="yardLinesOffensePlayerNumber">
                       <label for="offensePlayerNumber"
-                        >Offense Passer/Rusher/Kicker #</label
+                        >Offense Passer/Rusher/Kicker Player #</label
                       >
                       <input
                         type="number"
@@ -373,57 +375,67 @@
                     </select>
                   </div>
                   <div class="passOptionsYardage">
-                    <label for="targetReceiverPlayer"
-                      >Target Receiver Player #</label
-                    >
-                    <input
-                      type="number"
-                      max="99"
-                      min="1"
-                      name="player_receiver_number"
-                      id="targetReceiverPlayer"
-                      placeholder="Player #"
-                    />
-                    <label for="stepPassHappenYardLine"
-                      >Occurred on Yard Line</label
-                    >
-                    <input
-                      type="number"
-                      max="100"
-                      min="0"
-                      name="happened_on_yard_line"
-                      id="stepPassHappenYardLine"
-                      placeholder="Yards Line #"
-                    />
-                    <label for="selectHappenFieldSide">on the</label>
-                    <select
-                      name="select_happen_field_side"
-                      id="selectHappenFieldSide"
-                    >
-                      <option value="visitorHappenFieldSide">
-                        Visitor Field Side
-                      </option>
-                      <option value="homeHappenFieldSide">
-                        Home Field Side
-                      </option>
-                    </select>
-                    <label for="passDefendingSide">Defending Team:</label>
-                    <select name="defendingSide" id="passDefendingSide">
-                      <option value="offensiveside">
-                        Select Defending Team
-                      </option>
-                      <option value="visitor">Visitor Team</option>
-                      <option value="home">Home Team</option>
-                    </select>
-                    <label for="defendingPlayer">Defending Player #</label>
-                    <input
-                      type="number"
-                      max="99"
-                      min="1"
-                      name="player_defending_number"
-                      id="defendingPlayer"
-                      placeholder="Player #"
-                    />
+                    <div class="targetedReceiverPlayer">
+                      <label for="targetReceiverPlayer"
+                        >Target Receiver Player #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_receiver_number"
+                        id="targetReceiverPlayer"
+                        placeholder="Player #"
+                      />
+                    </div>
+                    <div class="stepPassingHappenYardLine">
+                      <label for="stepPassHappenYardLine"
+                        >Occurred on Yard Line</label
+                      >
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="happened_on_yard_line"
+                        id="stepPassHappenYardLine"
+                        placeholder="Yards Line #"
+                      />
+                    </div>
+                    <div class="selectingHappenFieldSide">
+                      <label for="selectHappenFieldSide">on the</label>
+                      <select
+                        name="select_happen_field_side"
+                        id="selectHappenFieldSide"
+                      >
+                        <option value="visitorHappenFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeHappenFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                    </div>
+                    <div class="passingDefendingSide">
+                      <label for="passDefendingSide">Defending Team:</label>
+                      <select name="defendingSide" id="passDefendingSide">
+                        <option value="offensiveside">
+                          Select Defending Team
+                        </option>
+                        <option value="visitor">Visitor Team</option>
+                        <option value="home">Home Team</option>
+                      </select>
+                    </div>
+                    <div class="defendPlayerNumber">
+                      <label for="defendingPlayer">Defending Player #</label>
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_defending_number"
+                        id="defendingPlayer"
+                        placeholder="Player #"
+                      />
+                    </div>
                   </div>
                   <div class="interception plays-form-display-none">
                     <label for="interceptingPossessingSide"
@@ -490,70 +502,80 @@
                     </select>
                   </div>
                   <div class="kickResult">
-                    <label for="kickRecoveryPlayer"
-                      >Kick Recovery Player #</label
-                    >
-                    <input
-                      type="number"
-                      max="99"
-                      min="1"
-                      name="player_recovery_number"
-                      id="kickRecoveryPlayer"
-                      placeholder="Player #"
-                    />
-                    <label for="kickRecoveryResultId">Kick Results:</label>
-                    <select
-                      name="kick_recovery_result"
-                      id="kickRecoveryResultId"
-                    >
-                      <option value="kickFairCaught">Fair Catch</option>
-                      <option value="muffedPunt">Muffed Punt</option>
-                      <option value="returnCatch">
-                        Receiving Team Caught (Returned)
-                      </option>
-                      <option value="returnFumble">
-                        Receiving Team Caught (Fumbled)
-                      </option>
-                      <option value="returnFumble">
-                        Kicking Team Caught/Touched First
-                      </option>
-                      <option value="kickOutOfBounds">Out of Bounds</option>
-                      <option value="touchback">Touchback</option>
-                      <option value="deadBacll">
-                        Dead Ball (Ball Stops Untouched Inbounds)
-                      </option>
-                    </select>
-                    <label for="doneOnYardLine">Occurred on Yard Line</label>
-                    <input
-                      type="number"
-                      max="100"
-                      min="0"
-                      name="happened_on_yard_line"
-                      id="doneOnYardLine"
-                      placeholder="Yards Line #"
-                    />
-                    <label for="selectKickEndHappenFieldSide">on the</label>
-                    <select
-                      name="select_happen_field_side"
-                      id="selectKickEndHappenFieldSide"
-                    >
-                      <option value="visitorHappenFieldSide">
-                        Visitor Field Side
-                      </option>
-                      <option value="homeHappenFieldSide">
-                        Home Field Side
-                      </option>
-                    </select>
-                    <label for="kickEndPossessingSide"
-                      >End of Play Possessed by:</label
-                    >
-                    <select name="possessingSide" id="kickEndPossessingSide">
-                      <option value="offensiveside">
-                        Select Possessing Side
-                      </option>
-                      <option value="visitor">Visitor Team</option>
-                      <option value="home">Home Team</option>
-                    </select>
+                    <div class="kickResultRecoveryPlayer">
+                      <label for="kickRecoveryPlayer"
+                        >Kick Recovery Player #</label
+                      >
+                      <input
+                        type="number"
+                        max="99"
+                        min="1"
+                        name="player_recovery_number"
+                        id="kickRecoveryPlayer"
+                        placeholder="Player #"
+                      />
+                    </div>
+                    <div class="kickResultRecoveryResult">
+                      <label for="kickRecoveryResultId">Kick Results:</label>
+                      <select
+                        name="kick_recovery_result"
+                        id="kickRecoveryResultId"
+                      >
+                        <option value="kickFairCaught">Fair Catch</option>
+                        <option value="muffedPunt">Muffed Punt</option>
+                        <option value="returnCatch">
+                          Receiving Team Caught (Returned)
+                        </option>
+                        <option value="returnFumble">
+                          Receiving Team Caught (Fumbled)
+                        </option>
+                        <option value="returnFumble">
+                          Kicking Team Caught/Touched First
+                        </option>
+                        <option value="kickOutOfBounds">Out of Bounds</option>
+                        <option value="touchback">Touchback</option>
+                        <option value="deadBacll">
+                          Dead Ball (Ball Stops Untouched Inbounds)
+                        </option>
+                      </select>
+                    </div>
+                    <div class="kickResultYardLine">
+                      <label for="doneOnYardLine">Occurred on Yard Line</label>
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="happened_on_yard_line"
+                        id="doneOnYardLine"
+                        placeholder="Yards Line #"
+                      />
+                    </div>
+                    <div class="kickResultEndFieldSide">
+                      <label for="selectKickEndHappenFieldSide">on the</label>
+                      <select
+                        name="select_happen_field_side"
+                        id="selectKickEndHappenFieldSide"
+                      >
+                        <option value="visitorHappenFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeHappenFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                    </div>
+                    <div class="kickResultEndPossessingSide">
+                      <label for="kickEndPossessingSide"
+                        >End of Play Possessed by:</label
+                      >
+                      <select name="possessingSide" id="kickEndPossessingSide">
+                        <option value="offensiveside">
+                          Select Possessing Side
+                        </option>
+                        <option value="visitor">Visitor Team</option>
+                        <option value="home">Home Team</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div class="fumbleOptions plays-form-display-none">
@@ -887,27 +909,33 @@
                     </select>
                   </div>
                   <div class="endOfPlayYardsParentClass">
-                    <label for="yardLinesEndingNumber">Ending on the</label>
-                    <select
-                      name="select_end_field_side"
-                      id="selectEndFieldSide"
-                    >
-                      <option value="visitorEndFieldSide">
-                        Visitor Field Side
-                      </option>
-                      <option value="homeEndFieldSide">Home Field Side</option>
-                    </select>
-                    <label for="yardLinesEndingNumber"
-                      >Play Ending Yard Line #</label
-                    >
-                    <input
-                      type="number"
-                      max="100"
-                      min="0"
-                      name="yard_line_ending_number"
-                      id="yardLinesEndingNumber"
-                      placeholder="Ending Yard Line #"
-                    />
+                    <div class="endYardLinesEndingNumber">
+                      <label for="yardLinesEndingNumber">Ending on the</label>
+                      <select
+                        name="select_end_field_side"
+                        id="selectEndFieldSide"
+                      >
+                        <option value="visitorEndFieldSide">
+                          Visitor Field Side
+                        </option>
+                        <option value="homeEndFieldSide">
+                          Home Field Side
+                        </option>
+                      </select>
+                    </div>
+                    <div class="endYardLinesEndingNumber">
+                      <label for="yardLinesEndingNumber"
+                        >Play Ending Yard Line #</label
+                      >
+                      <input
+                        type="number"
+                        max="100"
+                        min="0"
+                        name="yard_line_ending_number"
+                        id="yardLinesEndingNumber"
+                        placeholder="Ending Yard Line #"
+                      />
+                    </div>
                   </div>
                   <div
                     class="plays-form-display-none endOfPlayTackledParentClass"
@@ -966,8 +994,15 @@
                   />
                 </div>
               </form>
-              <button class="resetPlayFormButton">Reset Play Form</button>
             </div>
+            <div class="spaceForResetPlayFormButton">
+              <div class="resetPlayForm">
+                <button class="resetPlayFormButton">Reset Play Form</button>
+              </div>
+            </div>
+            <!-- <div class="resetPlayForm">
+              <button class="resetPlayFormButton">Reset Play Form</button>
+            </div> -->
           </div>
           <div class="tickerParentControls tickerParentControlsStyle">
             <h2 class="tickerTitle">Ticker Controls</h2>

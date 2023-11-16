@@ -49,12 +49,18 @@ function resetScore(side) {
 
 // Set Score Manually
 function setScore(setFormClass, setInputClass, side) {
+  event.preventDefault();
   const enteredScore = document.querySelector(setInputClass).value;
   console.log(enteredScore);
-
-  document.querySelector(side).innerText = "";
-  document.querySelector(side).append(enteredScore);
-  document.querySelector(setFormClass).reset();
+  if (enteredScore == "") {
+    console.log("Need to enter Score to set manually");
+    return;
+  } else {
+    console.log("got here");
+    document.querySelector(side).innerText = "";
+    document.querySelector(side).append(enteredScore);
+    document.querySelector(setFormClass).reset();
+  }
 }
 
 // Scoring Function
@@ -173,6 +179,8 @@ const createArrayIndex = (parentClassOfElementsToArray) => {
 // -Style Display Functions
 const changeToDisplayBlock = (thisArrayValue) => {
   thisArrayValue.style.display = "block";
+  // thisArrayValue.style.justifycontent = "space-between";
+  // thisArrayValue.style.flexdirection = "column";
 };
 const changeToDisplayNone = (thisArrayValue) => {
   thisArrayValue.style.display = "none";
@@ -395,6 +403,9 @@ const playFormResetButtonFunction = playFormResetButtonEl.addEventListener(
     console.log("Successfully Reset Play Form");
   }
 );
+
+// Set initial state:
+typeOfPlaySelectFunction(0);
 
 // API Options
 const API_URL_JSONSERVER = "http://localhost:3500/";
