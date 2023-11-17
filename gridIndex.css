@@ -314,6 +314,14 @@ table {
   flex: 0 1 40px;
 }
 
+.teamVisitor {
+  position: relative;
+}
+
+.teamVisitorSelect {
+  position: absolute;
+}
+
 .controls-score {
   display: flex;
   justify-content: space-evenly;

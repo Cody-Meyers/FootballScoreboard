@@ -1,4 +1,12 @@
 {
+  "gameInfo": [
+    {
+      "newGameid": "2990ad41-f8cb-4d24-a15a-1b9cbb996468",
+      "teamVisitor": "baltimoreRavens",
+      "teamHome": "carolinaPanthers",
+      "id": 1
+    }
+  ],
   "visitorScores": [
     {
       "id": 1,

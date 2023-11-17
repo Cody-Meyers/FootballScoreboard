@@ -45,6 +45,11 @@ function tickerTransformation(ticker1, ticker2, ticker3) {
 // Reset Score
 function resetScore(side) {
   document.querySelector(side).innerText = "0";
+  if (side == ".visitor-score-points") {
+    console.log("Successfully reset Visitor Side Score");
+  } else {
+    console.log("Successfully reset Home Side Score");
+  }
 }
 
 // Set Score Manually
@@ -409,6 +414,7 @@ typeOfPlaySelectFunction(0);
 
 // API Options
 const API_URL_JSONSERVER = "http://localhost:3500/";
+const API_URL_JSONSERVER_GAME_INFO = "http://localhost:3500/gameInfo";
 const API_URL_REQRES = "https://reqres.in/api/users";
 
 // Play Form Submission to API
@@ -539,3 +545,92 @@ const qbStatsFunction = async () => {
     console.log(error);
   }
 };
+
+// const teamSelectOptionsDropDown = document.querySelector(".teamVisitorSelect");
+// teamSelectOptionsDropDown.addEventListener("input", (event) => {
+//   oninput = (event) => {
+//     console.log("heard click");
+//   };
+// });
+// teamSelectOptionsDropDown.addEventListener("change", () => (this.size = 0));
+// teamSelectOptionsDropDown.addEventListener("onblur", () => (this.size = 0));
+
+// New Game Creation
+const newGameFormEl = document.querySelector(".newGameForm");
+newGameFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  newGameSubmit();
+  newGameFormEl.reset();
+  console.log("Successfully Started New Game");
+});
+
+async function newGameSubmit() {
+  const grabIdEl = document.querySelector("#newGameUniqueId");
+  const randomIdGenerated = crypto.randomUUID();
+  grabIdEl.value = randomIdGenerated;
+  console.log("New Game ID: " + randomIdGenerated);
+
+  const formData = new FormData(newGameFormEl);
+  console.log(formData.get("teamVisitor"));
+  console.log(formData.get("teamHome"));
+
+  const formDataEntries = Object.fromEntries(formData);
+  console.log(formDataEntries);
+  try {
+    const res = await fetch("http://localhost:3500/gameInfo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formDataEntries),
+    });
+    if (!res.ok) {
+      console.log(dataResponseData.description);
+      return;
+    }
+    const dataResponseData = await res.json();
+    console.log(dataResponseData);
+    resetScore(".visitor-score-points");
+    resetScore(".home-score-points");
+    playFormResetButtonEl.click();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// below is attempted code at creating a new Top Level Key for creating 'new leagues'
+// const createNewLeagueEl = document.querySelector("#createLeagueFormSubmitId");
+
+// const createNewLeagueFunction = () => {
+//   event.preventDefault();
+//   const newLeagueNameEl = document.querySelector(".newLeagueName");
+//   const newLeagueNameValue = newLeagueNameEl.value;
+//   console.log(newLeagueNameValue);
+
+//   const createleagueObject = {};
+//   createleagueObject[newLeagueNameValue] = [];
+//   // console.log(createLeagueObject);
+
+//   const existingDatabase = JSON.parse(fs.readFileSync("./data/db.json"));
+//   const mergeDatabase = Object.assign(existingDatabase, createleagueObject);
+//   fs.writeFileSync("./data/db.json", JSON.stringify(mergeDatabase));
+
+// try {
+//   const res = await fetch("http://localhost:3500", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(createleagueObject),
+//   });
+//   if (!res.ok) {
+//     console.log(dataResponseData.description);
+//     return;
+//   }
+//   const dataResponseData = await res.json();
+//   console.log("Created new League Successfully" + dataResponseData);
+// } catch (error) {
+//   console.log(error);
+// }
+// };
+// createNewLeagueEl.addEventListener("click", createNewLeagueFunction);

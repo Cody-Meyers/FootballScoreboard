@@ -119,6 +119,109 @@
         </div>
       </div>
       <div class="box container-controls">
+        <!-- <div class="createLeague">
+          <form class="createLeagueForm">
+            <label for="newLeagueNameId">Name of New League</label>
+            <input type="text" class="newLeagueName" id="newLeagueNameId">
+            <div class="createNewLeagueFormSubmit">
+              <input
+              type="submit"
+              value="Create League"
+              class="createLeagueFormSubmit"
+              id="createLeagueFormSubmitId"
+              />
+            </div>
+          </form>
+        </div>
+        <button id="createNewArray">Create new Array</button> -->
+        <h2 class="newGameHeader">New Game</h2>
+        <form class="newGameForm">
+          <div class="newGameUniqueIdParent">
+            <input type="hidden" name="newGameid" id="newGameUniqueId" />
+          </div>
+          <div class="teamSelect">
+            <div class="teamVisitor">
+              <label for="teamVisitorSelector">Select Visitor Team</label>
+              <select name="teamVisitor" id="teamVisitorSelector" class="teamVisitorSelect">
+                <option value="arizonaCardinals">Arizona Cardinals</option>
+                <option value="atlantaFalcons">Atlanta Falcons</option>
+                <option value="baltimoreRavens">Baltimore Ravens</option>
+                <option value="buffaloBills">Buffalo Bills</option>
+                <option value="carolinaPanthers">Carolina Panthers</option>
+                <option value="chicagoBears">Chicago Bears</option>
+                <option value="cincinnatiBengals">Cincinnati Bengals</option>
+                <option value="clevelandBrowns">Cleveland Browns</option>
+                <option value="dallasCowboys">Dallas Cowboys</option>
+                <option value="denverBroncos">Denver Broncos</option>
+                <option value="detroitLions">Detroit Lions</option>
+                <option value="greenBayPackers">Green Bay Packers</option>
+                <option value="houstonTexans">Houston Texans</option>
+                <option value="indianapolisColts">Indianapolis Colts</option>
+                <option value="jacksonvilleJaguars">Jacksonville Jaguars</option>
+                <option value="kansasCityChiefs">Kansas City Chiefs</option>
+                <option value="lasVegasRaiders">Las Vegas Raiders</option>
+                <option value="losAngelesChargers">Los Angeles Chargers</option>
+                <option value="losAngelesRams">Los Angeles Rams</option>
+                <option value="miamiDolphins">Miami Dolphins</option>
+                <option value="minnesotaVikings">Minnesota Vikings</option>
+                <option value="newEnglandPatriots">New England Patriots</option>
+                <option value="newOrleansSaints">New Orleans Saints</option>
+                <option value="newYorkJets">New York Jets</option>
+                <option value="philadelphiaEagles">Philadelphia Eagles</option>
+                <option value="pittsburghSteelers">Pittsburgh Steelers</option>
+                <option value="sanFrancisco49ers">San Francisco 49ers</option>
+                <option value="seattleSeahawks">Seattle Seahawks</option>
+                <option value="tampaBayBuccaneers">Tampa Bay Buccaneers</option>
+                <option value="tennesseeTitans">Tennessee Titans</option>
+                <option value="washingtonCommanders">Washington Commanders</option>
+              </select>
+            </div>
+            <div class="teamHome">
+              <label for="teamHomeSelector">Select Home Team</label>
+              <select name="teamHome" id="teamHomeSelector" class="teamHomeSelect">
+                <option value="arizonaCardinals">Arizona Cardinals</option>
+                <option value="atlantaFalcons">Atlanta Falcons</option>
+                <option value="baltimoreRavens">Baltimore Ravens</option>
+                <option value="buffaloBills">Buffalo Bills</option>
+                <option value="carolinaPanthers">Carolina Panthers</option>
+                <option value="chicagoBears">Chicago Bears</option>
+                <option value="cincinnatiBengals">Cincinnati Bengals</option>
+                <option value="clevelandBrowns">Cleveland Browns</option>
+                <option value="dallasCowboys">Dallas Cowboys</option>
+                <option value="denverBroncos">Denver Broncos</option>
+                <option value="detroitLions">Detroit Lions</option>
+                <option value="greenBayPackers">Green Bay Packers</option>
+                <option value="houstonTexans">Houston Texans</option>
+                <option value="indianapolisColts">Indianapolis Colts</option>
+                <option value="jacksonvilleJaguars">Jacksonville Jaguars</option>
+                <option value="kansasCityChiefs">Kansas City Chiefs</option>
+                <option value="lasVegasRaiders">Las Vegas Raiders</option>
+                <option value="losAngelesChargers">Los Angeles Chargers</option>
+                <option value="losAngelesRams">Los Angeles Rams</option>
+                <option value="miamiDolphins">Miami Dolphins</option>
+                <option value="minnesotaVikings">Minnesota Vikings</option>
+                <option value="newEnglandPatriots">New England Patriots</option>
+                <option value="newOrleansSaints">New Orleans Saints</option>
+                <option value="newYorkJets">New York Jets</option>
+                <option value="philadelphiaEagles">Philadelphia Eagles</option>
+                <option value="pittsburghSteelers">Pittsburgh Steelers</option>
+                <option value="sanFrancisco49ers">San Francisco 49ers</option>
+                <option value="seattleSeahawks">Seattle Seahawks</option>
+                <option value="tampaBayBuccaneers">Tampa Bay Buccaneers</option>
+                <option value="tennesseeTitans">Tennessee Titans</option>
+                <option value="washingtonCommanders">Washington Commanders</option>
+              </select>
+            </div>
+            <div class="newGameSubmit">
+              <input
+                type="submit"
+                value="Submit"
+                class="newGameSubmit"
+                id="newGameSubmitId"
+              />
+            </div>
+          </div>
+        </form>
         <h2 class="controlsTitle">Scoreboard Controls</h2>
         <div class="controls-main">
           <div class="controls-static-components"></div>
