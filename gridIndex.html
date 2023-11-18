@@ -134,10 +134,51 @@
           </form>
         </div>
         <button id="createNewArray">Create new Array</button> -->
+        <form class="leagueCreationForm">
+          <div class="leagueNewNameParent">
+            <label for="leagueNewNameId">Enter New League Name</label>
+            <input name="leagueNames" type="text" id="leagueNewNameId" class="leagueNewName">
+          </div>
+          <div class="leagueNewNameSubmit">
+            <input
+            type="submit"
+              value="Submit"
+              class="leagueNewNameSubmitButton"
+              id="leagueNewNameSubmitId"
+            />
+          </div>
+        </form>
         <h2 class="newGameHeader">New Game</h2>
         <form class="newGameForm">
           <div class="newGameUniqueIdParent">
             <input type="hidden" name="newGameid" id="newGameUniqueId" />
+          </div>
+          <div class="leagueSelect">
+            <label for="leagueSelectOptions">Select League</label>
+            <select name="leagueSelection" id="leagueSelectOptions">
+              <option value="defaultSelectLeague">Select League</option>
+              <option value="leagueNfl">NFL</option>
+              <!-- <option value="createNewLeague">Create New League</option> -->
+            </select>
+          </div>
+          <div class="leagueCreation">
+            <!-- <button class="createNewLeague">Create New League</button> -->
+            <div class="leagueCreationParent">
+              <!-- <form class="leagueCreationForm">
+                <div class="leagueNewNameParent">
+                  <label for="leagueNewNameId">Enter New League Name</label>
+                  <input type="text" id="leagueNewNameId" class="leagueNewName">
+                </div>
+                <div class="leagueNewNameSubmit">
+                  <input
+                    type="submit"
+                    value="Submit"
+                    class="leagueNewNameSubmitButton"
+                    id="leagueNewNameSubmitId"
+                  />
+                </div>
+              </form> -->
+            </div>
           </div>
           <div class="teamSelect">
             <div class="teamVisitor">

@@ -634,3 +634,123 @@ async function newGameSubmit() {
 // }
 // };
 // createNewLeagueEl.addEventListener("click", createNewLeagueFunction);
+
+// const createNewLeagueEl = document.querySelector(".leagueCreationForm");
+// createNewLeagueEl.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   createNewLeagueEl.reset();
+//   console.log("Successfully Created New League");
+// });
+
+// Create New League Function
+const createNewLeagueEl = document.querySelector(".leagueCreationForm");
+createNewLeagueEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  createNewLeagueFunction();
+  createNewLeagueEl.reset();
+  console.log("Successfully Created New League");
+});
+const createNewLeagueFunction = async () => {
+  event.preventDefault();
+  const newLeagueNameEl = document.querySelector(".leagueNewName");
+  const newLeagueNameValue = newLeagueNameEl.value;
+  console.log(newLeagueNameValue);
+  const formData = new FormData(createNewLeagueEl);
+  console.log(formData);
+  const formDataEntries = Object.fromEntries(formData);
+  console.log(formDataEntries);
+  try {
+    const res = await fetch("http://localhost:3500/leagues/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formDataEntries),
+    });
+    const dataResponseData = await res.json();
+    if (!res.ok) {
+      console.log(dataResponseData.description);
+      return;
+    }
+    console.log("Created new League Successfully" + dataResponseData);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const selectLeagueEl = document.querySelector("#leagueSelectOptions");
+selectLeagueEl.addEventListener("click", (event) => {
+  // event.preventDefault();
+  showLeagues();
+  console.log("Select Leage Option Clicked");
+});
+
+const showLeagues = async () => {
+  try {
+    const res = await fetch("http://localhost:3500/leagues/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const dataResponseData = await res.json();
+    console.log(dataResponseData);
+
+    if (!res.ok) {
+      console.log(dataResponseData.description);
+      return;
+    }
+
+    // Filter API "leagues" GET's showLeagues Response Data with only Objects with leagueNames
+    const filteredLeagueObjects = dataResponseData.filter(
+      (object) => object.leagueNames
+    );
+    console.log(filteredLeagueObjects);
+
+    // Creates an Array of League Option Names from Objects created by filteredLeagueObjects
+    const databaseLeagueOptions = [];
+    for (i = 0; i < filteredLeagueObjects.length; i++) {
+      databaseLeagueOptions.push(filteredLeagueObjects[i].leagueNames);
+    }
+    console.log(databaseLeagueOptions);
+
+    // Grabs current Select Options from HTML #leagueSelectOptions and creates an array of the Options
+    const selectLeagueDropDownIndexedOptions = document.querySelector(
+      "#leagueSelectOptions"
+    ).options;
+    const currentLeageOptions = [];
+    for (let i = 0; i < selectLeagueDropDownIndexedOptions.length; i++) {
+      const selectOption = selectLeagueDropDownIndexedOptions[i].innerText;
+      console.log(selectOption);
+      currentLeageOptions.push(selectOption);
+    }
+    console.log(currentLeageOptions);
+
+    // Uses API Array of League Names and compares to existing Select Options from HTMl #leagueSelectOptions
+    const leaguesToAddToOptions = databaseLeagueOptions.filter(
+      (string) => !currentLeageOptions.includes(string)
+    );
+    console.log(leaguesToAddToOptions);
+
+    // Creates 'Options' in HTML #leagueSelectOptions drop down with League names from API "leagues"
+    const selectLeagueDropDown = document.querySelector("#leagueSelectOptions");
+    const leagueSelectionOptions = () => {
+      for (let i = 0; i < leaguesToAddToOptions.length; i++) {
+        let option = leaguesToAddToOptions[i];
+        let optionEl = document.createElement("option");
+        optionEl.textContent = option;
+        selectLeagueDropDown.appendChild(optionEl);
+      }
+      console.log("Added League Option to Drop Down");
+    };
+
+    // Checks if leaguesToAddToOptions array is empty, if not then runs function to add league options
+    if (leaguesToAddToOptions.length === 0) {
+      console.log("No additional Leagues to Add");
+    } else {
+      leagueSelectionOptions();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
